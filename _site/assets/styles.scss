@@ -1,0 +1,86 @@
+---
+---
+
+* {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  
+  @media (max-width: 350px) {
+    font-size: 36px;
+  }
+}
+
+h2 {
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  
+  @media (max-width: 350px) {
+    font-size: 24px;
+  }
+}
+
+hr {
+  width: 70%;
+}
+
+.header-container {
+  margin: 0 auto;
+  max-width: 40em;
+  text-align: center;
+}
+
+.header-container__subtitle {
+  position: relative;
+  bottom: 1.8em;
+}
+
+.header-container__links {
+  font-size: 20px;
+  
+  @media (max-width: 700px) {
+    margin-top: -0.8em; 
+  }
+}
+
+.header-container__link {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  
+  + .header-container__link {
+    margin-left: 0.7em;
+    
+     @media (max-width: 700px) {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    display: block;
+    margin-bottom: 0.3em;
+  }
+}
+
+.code-samples-container {
+  text-align: center;
+}
+
+.code-sample {
+  margin-bottom: 0.8em;
+}
+
+.code-sample span, .header-container__link {
+  transition: text-shadow 0.3s;
+}
+
+.code-sample span:hover, .header-container__link:hover {
+  text-shadow: 2px 2px 5px grey;
+  cursor: pointer;
+}
