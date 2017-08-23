@@ -1,6 +1,4 @@
----
----
-
+// Universal styles
 * {
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
@@ -27,23 +25,34 @@ h2 {
   }
 }
 
-hr {
-  width: 70%;
+a {
+  text-decoration: none;
 }
+
+// Header
 
 .header-container {
   margin: 0 auto;
-  max-width: 40em;
   text-align: center;
+
+  hr {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.header-container__main-title {
+  margin-bottom: 0.2em;
 }
 
 .header-container__subtitle {
   position: relative;
-  bottom: 1.8em;
+  bottom: 1.1em;
 }
 
 .header-container__links {
   font-size: 20px;
+  margin-bottom: 0.3em;
   
   @media (max-width: 700px) {
     margin-top: -0.8em; 
@@ -68,7 +77,10 @@ hr {
   }
 }
 
+// Code samples
+
 .code-samples-container {
+  margin-top: 1em;
   text-align: center;
 }
 
@@ -83,4 +95,15 @@ hr {
 .code-sample span:hover, .header-container__link:hover {
   text-shadow: 2px 2px 5px grey;
   cursor: pointer;
+}
+
+.post-title {
+  text-align: center;
+  line-height: 1.2em;
+}
+
+// Content body
+
+.page-content {
+  margin-top: 0.5em
 }
