@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>spotify api and marionette &#8211; Pixyll</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
+    <meta name="robots" content="all">
+    <meta name="author" content="John Otander">
+    
+    <meta name="keywords" content="backbone,, marionette,">
+    <link rel="canonical" href="http://localhost:4000/backbone,/marionette,/2016/06/13/spotify-api-and-marionette/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Pixyll" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201808101725" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="spotify api and marionette">
+    <meta property="og:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.">
+    <meta property="og:url" content="http://localhost:4000/backbone,/marionette,/2016/06/13/spotify-api-and-marionette/">
+    <meta property="og:site_name" content="Pixyll">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="spotify api and marionette" />
+    <meta name="twitter:description" content="A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff." />
+    <meta name="twitter:url" content="http://localhost:4000/backbone,/marionette,/2016/06/13/spotify-api-and-marionette/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://localhost:4000" class="site-title">Pixyll</a>
+      <nav class="site-nav">
+        
+
+
+
+    
+    
+    
+    
+        <a href="/about/">About Pixyll</a>
+    
+
+    
+
+    
+    
+    
+    
+        <a href="/contact/">Say Hello</a>
+    
+
+    
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>spotify api and marionette</h1>
+  <span class="post-meta">Jun 13, 2016</span><br>
+  
+  <span class="post-meta small">
+  
+    2 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>you can find the final application <a href="https://project-2181696919058931612.firebaseapp.com/">here</a></p>
+
+<p>spotify has a great <a href="https://developer.spotify.com/web-api/">api</a> that allows you to, among other things, search song, artist, and album information. one of the end points they supply gives a listing of a given artist’s top 10 tracks by country (according to spotify). with that in mind, let me take you back to the frontier days of 2006. back then, there was this great little website called “i just want to listen to the best of…” that allowed you to search up an artist and listen to their most popular tracks (according to grooveshark). turns out that site no longer exists. so, i’m here to fill the void.</p>
+
+<h2 id="querying-the-server">querying the server</h2>
+
+<p>searching a given artist is a two step promise. first, an artist’s unique ID number must be acquired. this can be found at the <code class="highlighter-rouge">/search</code> endpoint. for example, a request to  <code class="highlighter-rouge">https://api.spotify.com/v1/search?q=mountain%20goats&amp;type=artist</code> will return an object containing all information for artists matching “Mountain Goats”. from there, the <code class="highlighter-rouge">items</code> array can be iterated over, and the correct <code class="highlighter-rouge">id</code> property extracted.</p>
+
+<p>here’s a code sample using jQuery’s ajax method and the returned <a href="https://api.jquery.com/category/deferred-object/">deferred object</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.spotify.com/v1/search"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:{</span>
+    <span class="na">q</span><span class="p">:</span><span class="s2">"mountain goats"</span><span class="p">,</span>
+    <span class="na">type</span><span class="p">:</span><span class="s2">"artist"</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">artistData</span><span class="p">){</span>
+  <span class="cm">/* for simplicity's sake, we'll assume the first element of
+  the items array is the closest artist match */</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"artist's id is"</span><span class="p">,</span><span class="nx">artistData</span><span class="p">.</span><span class="nx">artists</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">)</span>
+<span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>from there, we can use the artist id to make another query to the <code class="highlighter-rouge">/artists</code> end point.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.spotify.com/v1/search"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:{</span>
+    <span class="na">q</span><span class="p">:</span><span class="s2">"mountain goats"</span><span class="p">,</span>
+    <span class="na">type</span><span class="p">:</span><span class="s2">"artist"</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">artistData</span><span class="p">){</span>
+  <span class="c1">//assuming first result is the searched artist</span>
+  <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="na">method</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.spotify.com/v1/artists/"</span> <span class="o">+</span> <span class="nx">artistData</span><span class="p">.</span><span class="nx">artists</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">"/top-tracks"</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:{</span>
+      <span class="c1">//defaults to top US tracks</span>
+      <span class="na">country</span><span class="p">:</span><span class="s2">"US"</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">topTracks</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"the mountain goats' top tracks"</span><span class="p">,</span><span class="nx">topTracks</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="displaying-the-data">displaying the data</h2>
+
+<p>truth be told, an application this simple could be easily done with raw javascript and plain html &amp; css. that said, i wanted to get some practice with <a href="http://marionettejs.com/">marionette</a>. to keep things simple, i organized the entire design within one <code class="highlighter-rouge">LayoutView</code>, split into two regions: <code class="highlighter-rouge">Search</code> and <code class="highlighter-rouge">Results</code>. each new search triggers a rerender of the <code class="highlighter-rouge">Results</code> region, which then uses underscore’s <code class="highlighter-rouge">_.template()</code> function to create a <code class="highlighter-rouge">Track</code> view for each of the artist’s top tracks.</p>
+
+<h2 id="the-final-product">the final product</h2>
+
+<p>you can check out the finished app <a href="https://project-2181696919058931612.firebaseapp.com/">here</a></p>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">GitHub</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

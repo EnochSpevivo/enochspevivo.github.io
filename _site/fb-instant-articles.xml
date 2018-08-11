@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title></title>
+    <link>http://localhost:4000</link>
+    <description>
+      A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+    </description>
+    
+        
+            <item>
+                <title>aws cloudformation templates</title>
+                <link>http://localhost:4000/react/2017/12/13/aws-alert-slack-integration/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>we use a lot of AWS services here at <a href="https://www.yogaglo.com/">YogaGlo</a>, <a href="https://aws.amazon.com/elasticache/">elasticache</a> (with redis) being one of them. we use two redis clusters,</p>
+
+<p>so, after a short stint with backbone and marionette, i’ve <strike>hopped on the bandwagon</strike> tried out the latest hotness on the scene, react.js.</p>
+
+<h2 id="react">react</h2>
+<p>react offers up just the V part of the MVC. in other words, react has no opinion on how you should structure your raw data, nor does it offer any solutions for coordinating events between model or view. while this may sound sparse (who doesn’t appreciate some structure?), i actually find the flexibility this offers quite refreshing. <a href="http://backbonejs.org/">backbone.js</a> is my current favorite MV* framework, and it plays very nicely with react’s unopinionated stance on models and controllers.</p>
+
+<p>one of the really cool things about react is that it comes with a <a href="https://facebook.github.io/react/docs/glossary.html">virtual dom</a>. the virtual dom is, as the name suggests, a copy of the DOM that react maintains at all times. whenever you change a <code class="highlighter-rouge">reactElement</code> (most commonly done through <code class="highlighter-rouge">reactComponents</code>), react checks the changes between the “real” DOM and its virtual DOM, and only updates the delta. calls to <code class="highlighter-rouge">ReactDOM.render()</code> allow react to use its virtual DOM to rapidly update your view, especially in contrast to most varieties of query selection.</p>
+
+<h2 id="code-sample">code sample</h2>
+<p>react is cool, but it’s even cooler seeing it in action. check out <a href="http://codepen.io/AKingDebased/pen/XdLbrw?editors=0010">this codepen</a> that renders a simple user and friends list, and allows you to add or remove friends. there’s also some other bells and whistles, like semi-persistent data through the <code class="highlighter-rouge">localStorage</code> object.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/react/2017/12/13/aws-alert-slack-integration/</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Wed, 13 Dec 2017 00:00:00 -0800</pubDate>
+                <author>John Otander</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>spotify api and marionette</title>
+                <link>http://localhost:4000/backbone,/marionette,/2016/06/13/spotify-api-and-marionette/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>you can find the final application <a href="https://project-2181696919058931612.firebaseapp.com/">here</a></p>
+
+<p>spotify has a great <a href="https://developer.spotify.com/web-api/">api</a> that allows you to, among other things, search song, artist, and album information. one of the end points they supply gives a listing of a given artist’s top 10 tracks by country (according to spotify). with that in mind, let me take you back to the frontier days of 2006. back then, there was this great little website called “i just want to listen to the best of…” that allowed you to search up an artist and listen to their most popular tracks (according to grooveshark). turns out that site no longer exists. so, i’m here to fill the void.</p>
+
+<h2 id="querying-the-server">querying the server</h2>
+
+<p>searching a given artist is a two step promise. first, an artist’s unique ID number must be acquired. this can be found at the <code class="highlighter-rouge">/search</code> endpoint. for example, a request to  <code class="highlighter-rouge">https://api.spotify.com/v1/search?q=mountain%20goats&amp;type=artist</code> will return an object containing all information for artists matching “Mountain Goats”. from there, the <code class="highlighter-rouge">items</code> array can be iterated over, and the correct <code class="highlighter-rouge">id</code> property extracted.</p>
+
+<p>here’s a code sample using jQuery’s ajax method and the returned <a href="https://api.jquery.com/category/deferred-object/">deferred object</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.spotify.com/v1/search"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:{</span>
+    <span class="na">q</span><span class="p">:</span><span class="s2">"mountain goats"</span><span class="p">,</span>
+    <span class="na">type</span><span class="p">:</span><span class="s2">"artist"</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">artistData</span><span class="p">){</span>
+  <span class="cm">/* for simplicity's sake, we'll assume the first element of
+  the items array is the closest artist match */</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"artist's id is"</span><span class="p">,</span><span class="nx">artistData</span><span class="p">.</span><span class="nx">artists</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">)</span>
+<span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>from there, we can use the artist id to make another query to the <code class="highlighter-rouge">/artists</code> end point.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.spotify.com/v1/search"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:{</span>
+    <span class="na">q</span><span class="p">:</span><span class="s2">"mountain goats"</span><span class="p">,</span>
+    <span class="na">type</span><span class="p">:</span><span class="s2">"artist"</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">artistData</span><span class="p">){</span>
+  <span class="c1">//assuming first result is the searched artist</span>
+  <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="na">method</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span><span class="s2">"https://api.spotify.com/v1/artists/"</span> <span class="o">+</span> <span class="nx">artistData</span><span class="p">.</span><span class="nx">artists</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span> <span class="o">+</span> <span class="s2">"/top-tracks"</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:{</span>
+      <span class="c1">//defaults to top US tracks</span>
+      <span class="na">country</span><span class="p">:</span><span class="s2">"US"</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">topTracks</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"the mountain goats' top tracks"</span><span class="p">,</span><span class="nx">topTracks</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="displaying-the-data">displaying the data</h2>
+
+<p>truth be told, an application this simple could be easily done with raw javascript and plain html &amp; css. that said, i wanted to get some practice with <a href="http://marionettejs.com/">marionette</a>. to keep things simple, i organized the entire design within one <code class="highlighter-rouge">LayoutView</code>, split into two regions: <code class="highlighter-rouge">Search</code> and <code class="highlighter-rouge">Results</code>. each new search triggers a rerender of the <code class="highlighter-rouge">Results</code> region, which then uses underscore’s <code class="highlighter-rouge">_.template()</code> function to create a <code class="highlighter-rouge">Track</code> view for each of the artist’s top tracks.</p>
+
+<h2 id="the-final-product">the final product</h2>
+
+<p>you can check out the finished app <a href="https://project-2181696919058931612.firebaseapp.com/">here</a></p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/backbone,/marionette,/2016/06/13/spotify-api-and-marionette/</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Mon, 13 Jun 2016 00:00:00 -0700</pubDate>
+                <author>John Otander</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>backing up minecraft servers</title>
+                <link>http://localhost:4000/minecraft,/snippets/2016/05/31/backing-up-minecraft-servers/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>recently, my roommate and i have been playing a lot of minecraft. i’ve been hosting a local server for us, and keeping all the files stored on my main computer. however, idiots that we are, there’s more than a few times that we need to roll back to previous versions.  luckily, server back ups are as simple as copying the <code class="highlighter-rouge">world</code> folder. so, i wrote this tiny bash script to do just that:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">today</span><span class="o">=</span><span class="k">$(</span>date +%Y-%m-%d<span class="k">)</span><span class="p">;</span>
+<span class="nv">currentTime</span><span class="o">=</span><span class="k">$(</span>date +%T<span class="k">)</span><span class="p">;</span>
+
+mkdir <span class="nt">-p</span> ./backups/<span class="nv">$today</span>/<span class="nv">$currentTime</span><span class="p">;</span>
+cp <span class="nt">-r</span> ./world/<span class="k">*</span> ./backups/<span class="nv">$today</span>/<span class="nv">$currentTime</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>this little snippet is run in the command line using <code class="highlighter-rouge">backup-world.sh</code>. it looks in the current directoy (i.e., the server folder) for a folder called <code class="highlighter-rouge">backups</code> and creates inside of it a folder with today’s date, and inside that a folder with a timestamp. multiple back ups on the same day create new folders in the same date folder with different timestamps.</p>
+
+<p>the script then copies all the files in the <code class="highlighter-rouge">world</code> folder to the <code class="highlighter-rouge">currentTime</code> folder. and that, as they say, is that. quick, dirty, functional - just the way i like it.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/minecraft,/snippets/2016/05/31/backing-up-minecraft-servers/</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Tue, 31 May 2016 00:00:00 -0700</pubDate>
+                <author>John Otander</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>playing with react</title>
+                <link>http://localhost:4000/react/2016/05/18/playing-with-react/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>so, after a short stint with backbone and marionette, i’ve <strike>hopped on the bandwagon</strike> tried out the latest hotness on the scene, react.js.</p>
+
+<h2 id="react">react</h2>
+<p>react offers up just the V part of the MVC. in other words, react has no opinion on how you should structure your raw data, nor does it offer any solutions for coordinating events between model or view. while this may sound sparse (who doesn’t appreciate some structure?), i actually find the flexibility this offers quite refreshing. <a href="http://backbonejs.org/">backbone.js</a> is my current favorite MV* framework, and it plays very nicely with react’s unopinionated stance on models and controllers.</p>
+
+<p>one of the really cool things about react is that it comes with a <a href="https://facebook.github.io/react/docs/glossary.html">virtual dom</a>. the virtual dom is, as the name suggests, a copy of the DOM that react maintains at all times. whenever you change a <code class="highlighter-rouge">reactElement</code> (most commonly done through <code class="highlighter-rouge">reactComponents</code>), react checks the changes between the “real” DOM and its virtual DOM, and only updates the delta. calls to <code class="highlighter-rouge">ReactDOM.render()</code> allow react to use its virtual DOM to rapidly update your view, especially in contrast to most varieties of query selection.</p>
+
+<h2 id="code-sample">code sample</h2>
+<p>react is cool, but it’s even cooler seeing it in action. check out <a href="http://codepen.io/AKingDebased/pen/XdLbrw?editors=0010">this codepen</a> that renders a simple user and friends list, and allows you to add or remove friends. there’s also some other bells and whistles, like semi-persistent data through the <code class="highlighter-rouge">localStorage</code> object.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/react/2016/05/18/playing-with-react/</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Wed, 18 May 2016 00:00:00 -0700</pubDate>
+                <author>John Otander</author>
+            </item>
+        
+    
+  </channel>
+</rss>

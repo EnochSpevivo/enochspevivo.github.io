@@ -1,147 +1,221 @@
-# minima
+# Pixyll
 
-*Minima is a one-size-fits-all Jekyll theme for writers*. It's Jekyll's default (and first) theme. It's what you get when you run `jekyll new`.
+[pixyll.com](http://www.pixyll.com)
 
-[Theme preview](https://jekyll.github.io/minima/)
+![Pixyll screenshot](https://cloud.githubusercontent.com/assets/1424573/3847467/134aa236-1e66-11e4-8421-4e8c122118dc.png)
 
-![minima theme preview](/screenshot.png)
+Pixyll is a simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff. It's mobile _first_, fluidly responsive, and delightfully lightweight.
 
-## Installation
+It's pretty minimal, but leverages large type and drastic contrast to make a statement, on all devices.
 
-Add this line to your Jekyll site's Gemfile:
+This Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
+([@4lpine](https://twitter.com/4lpine)).
 
-```ruby
-gem "minima"
+中文版 <https://github.com/ee0703/pixyll-zh-cn>.
+
+## Getting Started
+
+If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by [Smashing Magazine](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/).
+
+```
+$ git clone git@github.com:johnotander/pixyll.git
+$ cd pixyll
+$ gem install bundler # If you don't have bundler installed
+$ bundle install
 ```
 
-And add this line to your Jekyll site:
+#### Verify your Jekyll version
+
+It's important to also check your version of Jekyll since this project uses Native Sass which
+is [only supported by 2.0+](http://jekyllrb.com/news/2014/05/06/jekyll-turns-2-0-0/).
+
+### Fork, then clone
+
+Fork the repo, and then clone it so you've got the code locally.
+
+
+### Modify the `_config.yml`
+
+The `_config.yml` located in the root of the Pixyll directory contains all of the configuration details
+for the Jekyll site. The defaults are:
+
+```yml
+# Site settings
+title: Pixyll
+email: your_email@example.com
+author: John Otander
+description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+baseurl: ""
+url: "http://pixyll.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+paginate: 3
+```
+
+### Jekyll Serve
+
+Then, start the Jekyll Server. I always like to give the `--watch` option so it updates the generated HTML when I make changes.
+
+```
+$ jekyll serve --watch
+```
+
+Now you can navigate to `localhost:4000` in your browser to see the site.
+
+### Using Github Pages
+
+You can host your Jekyll site for free with Github Pages. [Click here](https://pages.github.com/) for more information.
+
+#### A configuration tweak if you're using a gh-pages sub-folder
+
+In addition to your github-username.github.io repo that maps to the root url, you can serve up sites by using a gh-pages branch for other repos so they're available at github-username.github.io/repo-name.
+
+This will require you to modify the `_config.yml` like so:
+
+```yml
+# Site settings
+title: Repo Name
+email: your_email@example.com
+author: John Otander
+description: "Repo description"
+baseurl: "/repo-name"
+url: "http://github-username.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+paginate: 3
+```
+
+This will ensure that the the correct relative path is constructed for your assets and posts. Also, in order to run the project locally, you will need to specify the blank string for the baseurl: `$ jekyll serve --baseurl ''`.
+
+##### If you don't want the header to link back to the root url
+
+You will also need to tweak the header include `/{{ site.baseurl }}`:
+
+```html
+<header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="{{ site.url }}/{{ site.baseurl }}">{{ site.title }}</a>
+      <nav class="site-nav right">
+        {% include navigation.html %}
+      </nav>
+    </div>
+  </div>
+</header>
+```
+
+A relevant Jekyll Github Issue: <https://github.com/jekyll/jekyll/issues/332>
+
+### Contact Form
+
+The contact form uses <http://formspree.io>. It will require you to fill the form out and submit it once, before going live, to confirm your email.
+
+More setup instructions and advanced options can be found at [http://formspree.io](http://formspree.io/)
+
+
+### Disqus
+
+To configure Disqus, set up a [Disqus site](https://disqus.com/admin/create/) with the same name as your site. Then, in `_config.yml`, edit the `disqus_shortname` value to enable Disqus.
+
+### txtpen
+
+To configure txtpen, set up a [txtpen site](https://txtpen.com/go) with the same name as your site. Then, in `_config.yml`, edit the `txtpen_sitename` value to enable txtpen
+
+### Customizing the CSS
+
+All variables can be found in the `_sass/_variables.scss` file, toggle these as you'd like to change the look and feel of Pixyll.
+
+### Page Animation
+
+If you would like to add a [fade-in-down effect](http://daneden.github.io/animate.css/), you can add `animated: true` to your `_config.yml`.
+
+### AnchorJS
+
+[AnchorJS](https://github.com/bryanbraun/anchorjs): _A JavaScript utility for adding deep anchor links to existing page content. AnchorJS is lightweight, accessible, and has no dependencies._ You can turn it on by toggling `enable_anchorjs`. Because it offers many ways for customization, tweaks should be done in `_includes/footer.html`. Default settings after turning AnchorJS on are:
+
+```html
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3, article h4, article h5, article h6');
+</script>
+```
+
+See [documentation](http://bryanbraun.github.io/anchorjs/#basic-usage) for more options.
+
+### Put in a Pixyll Plug
+
+If you want to give credit to the Pixyll theme with a link to <http://pixyll.com> or my personal website <http://johnotander.com> somewhere, that'd be awesome. No worries if you don't.
+
+### Web analytics and search engines
+
+You can measure visits to your website either by using [Google Analytics](https://www.google.com/analytics/) tracking embed or the more advanced [Google Tag Manager](https://www.google.com/analytics/tag-manager/) container.
+* For Google Analytics set up the value for `google_analytics`, it should be something like `google_analytics: UA-XXXXXXXX-X`.
+* For Google Tag Manager set up the value for `google_tag_manager`, it should be something like: `google_tag_manager: GTM-XXXXX`.
+* _Do not_ set both of above methods because this will cause conflicts and skew your reporting data.
+* Remember that you need to properly configure the GTM container in its admin panel if you want it to work. More info is available in [GTM's docs](https://www.google.com/analytics/tag-manager/resources/).
+
+Your website is, by default, set to be allowed for crawling and indexing by search engines. (Unless you made yourself a custom robots.txt file). You can use front matter settings on each page to control how search engines will it. Sometimes you may want to exclude a particular page from indexing or forbid Google to store a copy of your page in its cache. It is up to you. Use the `meta_robots` frontmatter key and assign values based on [this table](https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag?hl=en#valid-indexing--serving-directives). Some examples:
 
 ```yaml
-theme: minima
+# exclude page from index
+meta_robots: noindex
+
+# allow indexing, disallow caching
+meta_robots: noarchive
+
+# allow indexing, disallow crawling links
+meta_robots: nofollow
+
+# disallow indexing, follow links
+meta_robots: noindex,follow
 ```
 
-And then execute:
+In order to get more information about your website's status in search engines, you can register it in [Google Search Console](https://www.google.com/webmasters/tools/home) and/or [Bing Webmaster Tools](http://www.bing.com/toolbox/webmaster). Both these tools will ask you to authorize your website with them and there are couple of ways to do that. Pixyll supports verification via meta tags - just fill in values for `google_verification` and/or `bing_verification` in `_config.yml`, the verification strings and meta tags will then be added automatically.
 
-    $ bundle
+If search engine optimization is your thing, you can also set up `meta_description` values for each page/post. By default Pixyll uses `summary` to populate the `<meta name="description" content="...">` tag and falls back to `description` from `_config.yml` if `summary` is not present in page/post's front matter. The `summary` is also used for generating Open Graph tags. Why would you want to use a dedicated variable for meta description? Because character limit to properly display this description in search results (as a snippet) is way smaller than in Open Graph. It is recommended to keep it at 155-160 characters, for more in-depth info read [this article](https://moz.com/blog/i-cant-drive-155-meta-descriptions-in-2015).
 
+And lastly - if you happen to write in language other than English be sure to change `og_locale` in `_config.yml` to reflect it.
 
-## Contents At-A-Glance
+### Enjoy
 
-Minima has been scaffolded by the `jekyll new-theme` command and therefore has all the necessary files and directories to have a new Jekyll site up and running with zero-configuration.
+I hope you enjoy using Pixyll. If you encounter any issues, please feel free to let me know by creating an [issue](https://github.com/johnotander/pixyll/issues). I'd love to help.
 
-### Layouts
+## Upgrading Pixyll
 
-Refers to files within the `_layouts` directory, that define the markup for your theme.
+Pixyll is always being improved by its users, so sometimes one may need to upgrade.
 
-  - `default.html` &mdash; The base layout that lays the foundation for subsequent layouts. The derived layouts inject their contents into this file at the line that says ` {{ content }} ` and are linked to this file via [FrontMatter](https://jekyllrb.com/docs/frontmatter/) declaration `layout: default`.
-  - `home.html` &mdash; The layout for your landing-page / home-page / index-page.
-  - `page.html` &mdash; The layout for your documents that contain FrontMatter, but are not posts.
-  - `post.html` &mdash; The layout for your posts.
+#### Ensure there's an upstream remote
 
-### Includes
-
-Refers to snippets of code within the `_includes` directory that can be inserted in multiple layouts (and another include-file as well) within the same theme-gem.
-
-  - `disqus_comments.html` &mdash; Code to markup disqus comment box.
-  - `footer.html` &mdash; Defines the site's footer section.
-  - `google-analytics.html` &mdash; Inserts Google Analytics module (active only in production environment).
-  - `head.html` &mdash; Code-block that defines the `<head></head>` in *default* layout.
-  - `header.html` &mdash; Defines the site's main header section.
-  - `icon-* files` &mdash; Inserts github and twitter ids with respective icons.
-
-### Sass
-
-Refers to `.scss` files within the `_sass` directory that define the theme's styles.
-
-  - `minima.scss` &mdash; The core file imported by preprocessed `main.scss`, it defines the variable defaults for the theme and also further imports sass partials to supplement itself.
-  - `minima/_base.scss` &mdash; Resets and defines base styles for various HTML elements.
-  - `minima/_layout.scss` &mdash; Defines the visual style for various layouts.
-  - `minima/_syntax-highlighting.scss` &mdash; Defines the styles for syntax-highlighting.
-
-### Assets
-
-Refers to various asset files within the `assets` directory.
-Contains the `main.scss` that imports sass files from within the `_sass` directory. This `main.scss` is what gets processed into the theme's main stylesheet `main.css` called by `_layouts/default.html` via `_includes/head.html`.
-
-This directory can include sub-directories to manage assets of similar type, and will be copied over as is, to the final transformed site directory.
-
-
-## Usage
-
-### Customization
-
-To override the default structure and style of minima, simply create the concerned directory at the root of your site, copy the file you wish to customize to that directory, and then edit the file.
-e.g., to override the [`_includes/head.html `](_includes/head.html) file to specify a custom style path, create an `_includes` directory, copy `_includes/head.html` from minima gem folder to `<yoursite>/_includes` and start editing that file.
-
-The site's default CSS has now moved to a new place within the gem itself, [`assets/main.scss`](assets/main.scss). To **override the default CSS**, the file has to exist at your site source. Do either of the following:
-- Create a new instance of `main.scss` at site source.
-  - Create a new file `main.scss` at `<your-site>/assets/`
-  - Add the frontmatter dashes, and
-  - Add `@import "minima";`, to `<your-site>/assets/main.scss`
-  - Add your custom CSS.
-- Download the file from this repo
-  - Create  a new file `main.scss` at `<your-site>/assets/`
-  - Copy the contents at [assets/main.scss](assets/main.scss) onto the `main.scss` you just created, and edit away!
-- Copy directly from Minima 2.0 gem
-  - Go to your local minima gem installation directory ( run `bundle show minima` to get the path to it ).
-  - Copy the `assets/` folder from there into the root of `<your-site>`
-  - Change whatever values you want, inside `<your-site>/assets/main.scss`
-
---
-
-### Change default date format
-
-You can change the default date format by specifying `site.minima.date_format`
-in `_config.yml`.
+If `git remote -v` doesn't have an upstream listed, you can do the following to add it:
 
 ```
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
+git remote add upstream https://github.com/johnotander/pixyll.git
 ```
 
---
+#### Pull in the latest changes
 
-### Enabling comments (via Disqus)
-
-Optionally, if you have a Disqus account, you can tell Jekyll to use it to show a comments section below each post.
-
-To enable it, add the following lines to your Jekyll site:
-
-```yaml
-  disqus:
-    shortname: my_disqus_shortname
+```
+git pull upstream master
 ```
 
-You can find out more about Disqus' shortnames [here](https://help.disqus.com/customer/portal/articles/466208).
+There may be merge conflicts, so be sure to fix the files that git lists if they occur. That's it!
 
-Comments are enabled by default and will only appear in production, i.e., `JEKYLL_ENV=production`
+## Thanks to the following
 
-If you don't want to display comments for a particular post you can disable them by adding `comments: false` to that post's YAML Front Matter.
-
---
-
-### Enabling Google Analytics
-
-To enable Google Anaytics, add the following lines to your Jekyll site:
-
-```yaml
-  google_analytics: UA-NNNNNNNN-N
-```
-
-Google Analytics will only appear in production, i.e., `JEKYLL_ENV=production`
+* [BASSCSS](http://basscss.com)
+* [Jekyll](http://jekyllrb.com)
+* [Refills](http://refills.bourbon.io/)
+* [Solarized](http://ethanschoonover.com/solarized)
+* [Animate.css](http://daneden.github.io/animate.css/)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jekyll/minima. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `script/bootstrap`.
-
-To test your theme, run `script/server` (or `bundle exec jekyll serve`) and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme and the contents. As you make modifications, your site will regenerate and you should see the changes in the browser after a refresh.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
