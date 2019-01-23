@@ -9,24 +9,74 @@
     
         
             <item>
-                <title>cms webhooks with contentful &amp; express</title>
-                <link>http://localhost:4000/react/2018/08/13/aws-alert-slack-integration/</link>
+                <title>webhook microservice with express, contentful, and objection</title>
+                <link>http://localhost:4000/contentful/orm/webhook/node/express/glo/2018/08/13/contentful-cms-webhook-service/</link>
                 <content:encoded>
                     <![CDATA[
-                    <h2 id="background">background</h2>
-
-<p>i work on the <a href="https://www.yogaglo.com/">yogaglo</a> team as a web developer, and there’s few things i love more than automating processes. amongst many other features, yogaglo offers programs, which allow users to take classes of a certain difficulty in a progressive order. for a long time, program classes had to be manually inputted into our database by an engineer. programs could have anywhere between 3 and 54 classes, so this got tedious fast. moreover, we wanted to shift this responsibility from our devs to our content team. i saw this as a great opportunity to automate a tedious process. the services team and i decided a <a href="https://en.wikipedia.org/wiki/Content_management_system">cms</a> was our best option. i spearheaded this project and, after a bit of research, i encouraged us to use <a href="https://www.contentful.com/">contentful</a>.</p>
+                    <p>there’s few things i love more than automating processes. i used to work on the <a href="https://www.glo.com/">glo</a> team as a web developer, and amongst many other features, glo offers programs, which allow users to take thematically linked classes of a certain difficulty in a progressive order. for a long time, program classes had to be manually inputted into our database by an engineer. programs could have anywhere between 3 and 54 classes, so this got tedious fast. we wanted to shift this responsibility from our devs to our content team, such that there would be no need for a dev to upload new programs. i saw this as a great opportunity to automate a tedious process. the services team and i decided a <a href="https://en.wikipedia.org/wiki/Content_management_system">cms</a> was our best option. i spearheaded this project and, after a bit of research, i encouraged us to use <a href="https://www.contentful.com/">contentful</a>.</p>
 
 <h2 id="implementing-contentful">implementing contentful</h2>
 
-<p>contentful has a concept of <a href="https://www.contentful.com/r/knowledgebase/content-modelling-basics/">content models</a>, which act as a blueprint for a type of content (go figure). we started with a program content model that would allow our content team to input all the specifics of a program with a user-friendly interface. no command tools here. contentful would eventually be talking to our database by way of an express service, so there were data models from our database that we had to translate into contentful content models. to this point, the program content model had relationships to props (fit blocks, chairs, yoga mats, etc) and tags (used for filtering on all programs), as well as a link to a recommended next program.</p>
+<p>contentful has a concept of <a href="https://www.contentful.com/r/knowledgebase/content-modelling-basics/">content models</a>, which act as a blueprint for a type of content (go figure). i started with a <code class="highlighter-rouge">program</code> content model that would allow our content team to input all the specifics of a program with a user-friendly interface; no CLI tools here. contentful would eventually be talking to our database by way of a node based service combined with express.js, so there were data models from our postgres database that i had to translate into contentful content models. within our database, the <code class="highlighter-rouge">program</code> model came with title, teachers, duration, difficulty, etc, relationships to props (fit blocks, chairs, yoga mats, etc) and tags (used for filtering on all programs), and all of this needed to be reflected in contentful.</p>
 
-<p>it was at this point i started working on validation.</p>
+<h2 id="listening-to-webhooks">listening to webhooks</h2>
 
+<p>contentful comes with the ability to set up webhooks that can <code class="highlighter-rouge">POST</code> to provided endpoints. to that effect, i created a <a href="https://www.docker.com/">dockerized</a>, node based, microservice that i maintained through the <a href="https://rancher.com/">rancher GUI</a>. using express.js, i set up a <code class="highlighter-rouge">POST /cms-listener</code> end point, and fed that to contentful through its webhook gui. anytime a change to a contentful model is detected, contentful fires off a <code class="highlighter-rouge">POST</code> to my <code class="highlighter-rouge">/cms-listener</code> endpoint, providing a JSON snapshot of the model at the time of publication. from there, the flow is as follows:</p>
+
+<ul>
+  <li>verify that the fired event is of type <code class="highlighter-rouge">publish</code> and the received content of type <code class="highlighter-rouge">program</code> (for all its features, contentful does not provide a way to limit the types of events it fires off)</li>
+  <li>serialize the program data into a format the <code class="highlighter-rouge">objection.js</code> orm library understands. this data would eventually be <a href="https://wiki.postgresql.org/wiki/UPSERT">upserted</a> into our database. roughly speaking, that logic looks as follows:</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// the fields in the contentful json are all camelCased, and need to be snake cased in order to upsert properly into our database.</span>
+<span class="c1">// here, i used lodash's 'reduce' method to perform these string conversions.</span>
+<span class="kd">let</span> <span class="nx">programClassIds</span><span class="p">,</span>
+    <span class="nx">props</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">dataToUpsert</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">contentfulPayload</span><span class="p">.</span><span class="nx">programFields</span><span class="p">,</span> <span class="p">(</span><span class="nx">upsertionObj</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">fieldName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">fieldName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="s1">'programLevel'</span><span class="p">:</span>
+            <span class="nx">fieldName</span> <span class="o">=</span> <span class="s1">'program_level_id'</span><span class="p">;</span>
+            <span class="c1">// elsewhere in the file is a 'helpers' namespace that contains, funnily enough, helper methods that assist in serialization</span>
+            <span class="nx">data</span><span class="p">[</span><span class="s1">'en-US'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">helpers</span><span class="p">.</span><span class="nx">convertLevel</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">'en-US'</span><span class="p">]);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s1">'classIds'</span><span class="p">:</span>
+            <span class="nx">programClassIds</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="s1">'en-US'</span><span class="p">];</span>
+            <span class="k">return</span> <span class="nx">upsertionObj</span><span class="p">;</span>
+        <span class="k">case</span> <span class="s1">'props'</span><span class="p">:</span>
+            <span class="nx">props</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="s1">'en-US'</span><span class="p">];</span>
+            <span class="k">return</span> <span class="nx">upsertionObj</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">upsertionObj</span><span class="p">[</span><span class="nx">_</span><span class="p">.</span><span class="nx">snakeCase</span><span class="p">(</span><span class="nx">fieldName</span><span class="p">)]</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="s1">'en-US'</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nx">upsertionObj</span><span class="p">;</span>
+<span class="p">},</span> <span class="p">{});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>upsert the serialized program into our database.</li>
+  <li>get all program classes associated with this program by their unique IDs, then serialize and upsert these program classes into the already upserted program’s <code class="highlighter-rouge">programClasses</code> row. serializiation for program classe looks similar to the following:</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// all i needed to do here was convert a string to an int, and also bump the index of the 'sort_order`, since our database is 1-indexed</span>
+<span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">classIds</span><span class="p">,</span> <span class="p">(</span><span class="nx">classId</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+    <span class="na">program_id</span><span class="p">:</span> <span class="nx">_</span><span class="p">.</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">programId</span><span class="p">),</span>
+    <span class="na">class_id</span><span class="p">:</span> <span class="nx">_</span><span class="p">.</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">classId</span><span class="p">),</span>
+    <span class="na">sort_order</span><span class="p">:</span> <span class="nx">_</span><span class="p">.</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}));</span>
+</code></pre></div></div>
+<p><strong>note:</strong> i intentionally upserted the program before serializing program classes. for this iteration of the webhook, we, as a team, decided that it was fine if, say a <code class="highlighter-rouge">program</code> was successfully serialized and upserted, but its <code class="highlighter-rouge">programClasses</code> failed upsertion.</p>
+
+<p>and that’s it! well, generally speaking. once the above steps are finished, an instance of a <code class="highlighter-rouge">program</code> contentful model is successfully serialized &amp; upserted into our own database, and ready for production deployment.</p>
+
+<h2 id="final-thoughts">final thoughts</h2>
+
+<p>this was one of my favorite projects at glo. i find it very satisfying creating services that will benefit other members of my team. also, i was the creater and admin of the github repo for this project, as well as the maintainer of the docker service. though other people ended up working on this project, i was the very first commit in the repo, and i laid the groundwork for further iterations. everything about the service, from the usage of contentful, to the reliance on <code class="highlighter-rouge">objection.js</code>, to the architecture of the express app, was all by my design. this project was my baby, and is a proud memory from my days at glo.</p>
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/react/2018/08/13/aws-alert-slack-integration/</guid>
+                <guid isPermaLink="false">/contentful/orm/webhook/node/express/glo/2018/08/13/contentful-cms-webhook-service/</guid>
                 <description>
                     
                 </description>
