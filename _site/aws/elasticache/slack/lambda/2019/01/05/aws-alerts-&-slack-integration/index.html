@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>aws alerts & slack integration &#8211; gabriel gonzalvez</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="web dev, maker, and cosplayer.">
+    <meta name="robots" content="all">
+    <meta name="author" content="gabriel gonzalvez">
+    
+    <meta name="keywords" content="aws, elasticache, slack, lambda">
+    <link rel="canonical" href="http://localhost:4000/aws/elasticache/slack/lambda/2019/01/05/aws-alerts-&-slack-integration/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for gabriel gonzalvez" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201901230830" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="aws alerts &amp; slack integration">
+    <meta property="og:description" content="web dev, maker, and cosplayer.">
+    <meta property="og:url" content="http://localhost:4000/aws/elasticache/slack/lambda/2019/01/05/aws-alerts-&-slack-integration/">
+    <meta property="og:site_name" content="gabriel gonzalvez">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="aws alerts & slack integration" />
+    <meta name="twitter:description" content="web dev, maker, and cosplayer." />
+    <meta name="twitter:url" content="http://localhost:4000/aws/elasticache/slack/lambda/2019/01/05/aws-alerts-&-slack-integration/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site animated fade-in-down">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://localhost:4000" class="site-title">gabriel gonzalvez</a>
+      <nav class="site-nav">
+        
+
+
+
+    
+    
+    
+    
+        <a href="/about/">about</a>
+    
+
+    
+
+    
+    
+    
+    
+        <a href="/contact/">contact</a>
+    
+
+    
+
+    
+    
+    
+    
+        <a href="/theme/">theme</a>
+    
+
+    
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>aws alerts & slack integration</h1>
+  <span class="post-meta">Jan 5, 2019</span><br>
+  
+  <span class="post-meta small">
+  
+    3 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>i used to work on the <a href="https://www.glo.com/">glo</a> team, and while there, we used <a href="https://aws.amazon.com/elasticache/">amazon elasticache</a> for all of our caching needs. the decision to move to elasticache happened during my tenure, shortly after we had issues with our locally hosted <a href="https://redis.io/">redis</a> service crashing. we decided to delegate responsibility for cache hosting onto amazon.  as a member of the web team, i took it upon myself to a) set up our elasticache settings and b) implement a slack integration that would chirp out helpful status alerts based on certain metrics.</p>
+
+<h2 id="setting-up-elasticache">setting up elasticache</h2>
+
+<p>our elasticache needs were not extensive. we wanted two redis clusters, one for our web team and the other for our services team. behind the scenes, this required minor reconfiguration of our <code class="highlighter-rouge">env</code> files on both the web and services end, such that the apps now pointed to amazon. in the interest of making our app’s bootstrapping as easily reproducible as possible, i set up a <a href="https://aws.amazon.com/cloudformation/">cloudformation</a> template that included the following lines:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">EnableClusterA</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s">String</span>
+    <span class="na">Description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Enable</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">disable</span><span class="nv"> </span><span class="s">Cluster</span><span class="nv"> </span><span class="s">A.</span><span class="nv"> </span><span class="s">Disabling</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">cluster</span><span class="nv"> </span><span class="s">will</span><span class="nv"> </span><span class="s">remove</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">replicated</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">non-replicated</span><span class="nv"> </span><span class="s">versions</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">cluster.'</span>
+    <span class="na">AllowedValues</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">true</span><span class="pi">,</span> <span class="nv">false</span><span class="pi">]</span>
+    <span class="na">Default</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">EnableClusterB</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s">String</span>
+    <span class="na">Description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Enable</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">disable</span><span class="nv"> </span><span class="s">Cluster</span><span class="nv"> </span><span class="s">B.</span><span class="nv"> </span><span class="s">Disabling</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">cluster</span><span class="nv"> </span><span class="s">will</span><span class="nv"> </span><span class="s">remove</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">replicated</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">non-replicated</span><span class="nv"> </span><span class="s">versions</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">cluster.'</span>
+    <span class="na">AllowedValues</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">true</span><span class="pi">,</span> <span class="nv">false</span><span class="pi">]</span>
+    <span class="na">Default</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<p>in other words, instead of manually spinning up our elasticache clusters through the elasticache dashboard, we relied on cloudformation to generate clusters per my template.</p>
+
+<h2 id="slack-integration-with-amazon-lambda">slack integration with amazon lambda</h2>
+
+<p>i set up <a href="https://aws.amazon.com/cloudwatch/">cloudwatch</a> to watch our elasticache clusters for the health of metrics including cpu utilization and cache evictions. with input from the team, i determined healthy, unhealthy, and dangerous levels for these metrics, and then set up cloudwatch alerts to watch for these numbers. when any of these thresholds were crossed, <a href="https://aws.amazon.com/sns/">sns</a> would fire off a message to <a href="https://aws.amazon.com/lambda/">lambda</a>, where it would be received by a node script i wrote.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">),</span>
+	<span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'url'</span><span class="p">),</span>
+	<span class="nx">slackUrl</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">slackUrl</span><span class="p">,</span>
+	<span class="nx">slackChannel</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">slackChannel</span><span class="p">,</span>
+	<span class="nx">slackReqOpts</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">slackUrl</span><span class="p">);</span>
+
+<span class="nx">slackReqOpts</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="s1">'POST'</span><span class="p">;</span>
+<span class="nx">slackReqOpts</span><span class="p">.</span><span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">};</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">handler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">Records</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">Sns</span><span class="p">.</span><span class="nx">Message</span><span class="p">),</span>
+		<span class="nx">slackTitle</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">Trigger</span><span class="p">.</span><span class="nx">Namespace</span>  <span class="o">+</span> <span class="s1">' - '</span> <span class="o">+</span> <span class="nx">message</span><span class="p">.</span><span class="nx">Trigger</span><span class="p">.</span><span class="nx">MetricName</span><span class="p">,</span>
+		<span class="nx">status</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">AlarmDescription</span> <span class="o">||</span> <span class="s1">'Warning'</span><span class="p">;</span>
+
+	<span class="k">switch</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">NewStateValue</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">case</span> <span class="s1">'OK'</span><span class="p">:</span>
+			<span class="nx">status</span> <span class="o">=</span> <span class="s1">'Good'</span><span class="p">;</span>
+			<span class="k">break</span><span class="p">;</span>
+		<span class="k">case</span> <span class="s1">'ALARM'</span><span class="p">:</span>
+			<span class="nx">status</span> <span class="o">=</span> <span class="s1">'Warning'</span><span class="p">;</span>
+			<span class="k">break</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="kd">let</span>	<span class="nx">slackMessage</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="na">text</span><span class="p">:</span> <span class="nx">status</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">===</span> <span class="s1">'danger'</span> <span class="p">?</span> <span class="s1">'&lt;!channel&gt;'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+			<span class="na">channel</span><span class="p">:</span> <span class="nx">slackChannel</span><span class="p">,</span>
+		    <span class="na">attachments</span><span class="p">:</span> <span class="p">[{</span>
+	            <span class="na">fallback</span><span class="p">:</span> <span class="nx">message</span><span class="p">.</span><span class="nx">NewStateReason</span><span class="p">,</span>
+	            <span class="na">color</span><span class="p">:</span> <span class="nx">status</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">(),</span>
+	            <span class="na">title</span><span class="p">:</span> <span class="nx">slackTitle</span><span class="p">,</span>
+				<span class="na">text</span><span class="p">:</span> <span class="nx">message</span><span class="p">.</span><span class="nx">NewStateReason</span><span class="p">,</span>
+	            <span class="na">fields</span><span class="p">:</span> <span class="p">[</span>
+	                <span class="p">{</span>
+	                    <span class="na">title</span><span class="p">:</span> <span class="s2">"Node"</span><span class="p">,</span>
+	                    <span class="na">value</span><span class="p">:</span> <span class="nx">message</span><span class="p">.</span><span class="nx">Trigger</span><span class="p">.</span><span class="nx">Dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">,</span>
+						<span class="na">short</span><span class="p">:</span> <span class="kc">true</span>
+	                <span class="p">},</span> <span class="p">{</span>
+						<span class="na">title</span><span class="p">:</span> <span class="s2">"Status"</span><span class="p">,</span>
+						<span class="na">value</span><span class="p">:</span> <span class="nx">status</span><span class="p">,</span>
+						<span class="na">short</span><span class="p">:</span> <span class="kc">true</span>
+					<span class="p">},</span>
+					<span class="p">{</span>
+						<span class="na">title</span><span class="p">:</span> <span class="s2">"Region"</span><span class="p">,</span>
+						<span class="na">value</span><span class="p">:</span> <span class="nx">message</span><span class="p">.</span><span class="nx">Region</span><span class="p">,</span>
+						<span class="na">short</span><span class="p">:</span> <span class="kc">true</span>
+					<span class="p">}</span>
+	            <span class="p">]</span>
+	        <span class="p">}]</span>
+		<span class="p">};</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">slackReqOpts</span><span class="p">,</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">context</span><span class="p">.</span><span class="nx">succeed</span><span class="p">(</span><span class="s1">'posted to slack'</span><span class="p">);</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="nx">context</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="s1">'status code: '</span> <span class="o">+</span> <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">});</span>
+
+		<span class="nx">req</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+			<span class="nx">context</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+		<span class="p">});</span>
+
+		<span class="nx">req</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">slackMessage</span><span class="p">));</span>
+		<span class="nx">req</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="the-final-product">the final product</h2>
+
+<p><img src="https://i.imgur.com/y7Xu9dw.png" alt="'good' status" />
+<img src="https://i.imgur.com/Y918qdj.png" alt="'warning' status" /></p>
+
+<p>after all the above leg work, these messages get piped into a special <code class="highlighter-rouge">ops-alerts</code> slack channel. the net result of all this is that those on pager duty (including myself) are able to immediately see if anything’s gone awry with our elasticache service. the above pattern has also been used for similar alerts with our other amazon web services, and has generally helped the sanity of anyone trying to stay ahead of potential issues within our app.</p>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">GitHub</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -17,7 +17,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for gabriel gonzalvez" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201901222248" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201901230830" type="text/css">
 
     <!-- Fonts -->
     
@@ -88,7 +88,7 @@
     
     
     
-        <a href="/about/">About Pixyll</a>
+        <a href="/about/">about</a>
     
 
     
@@ -97,7 +97,16 @@
     
     
     
-        <a href="/contact/">Say Hello</a>
+        <a href="/contact/">contact</a>
+    
+
+    
+
+    
+    
+    
+    
+        <a href="/theme/">theme</a>
     
 
     
@@ -128,7 +137,7 @@
 </div>
 
 <article class="post-content">
-  <p>you can find the final application <a href="https://project-2181696919058931612.firebaseapp.com/">here</a></p>
+  <p><del>you can find the final application <a href="https://project-2181696919058931612.firebaseapp.com/">here</a></del> <strong>author’s note:</strong> though this link still works, spotify has long since changed its api such that this app no longer works as originally designed. you can still look at it, though!</p>
 
 <p>spotify has a great <a href="https://developer.spotify.com/web-api/">api</a> that allows you to, among other things, search song, artist, and album information. one of the end points they supply gives a listing of a given artist’s top 10 tracks by country (according to spotify). with that in mind, let me take you back to the frontier days of 2006. back then, there was this great little website called “i just want to listen to the best of…” that allowed you to search up an artist and listen to their most popular tracks (according to grooveshark). turns out that site no longer exists. so, i’m here to fill the void.</p>
 
@@ -184,9 +193,6 @@
 
 <p>truth be told, an application this simple could be easily done with raw javascript and plain html &amp; css. that said, i wanted to get some practice with <a href="http://marionettejs.com/">marionette</a>. to keep things simple, i organized the entire design within one <code class="highlighter-rouge">LayoutView</code>, split into two regions: <code class="highlighter-rouge">Search</code> and <code class="highlighter-rouge">Results</code>. each new search triggers a rerender of the <code class="highlighter-rouge">Results</code> region, which then uses underscore’s <code class="highlighter-rouge">_.template()</code> function to create a <code class="highlighter-rouge">Track</code> view for each of the artist’s top tracks.</p>
 
-<h2 id="the-final-product">the final product</h2>
-
-<p>you can check out the finished app <a href="https://project-2181696919058931612.firebaseapp.com/">here</a></p>
 
 </article>
 

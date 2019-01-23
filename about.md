@@ -1,87 +1,19 @@
 ---
 layout: page
-title: About Pixyll
+title: about
 permalink: /about/
 tags: about
 ---
 
-This Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
-([@4lpine](https://twitter.com/4lpine)).
+![a man of valor](https://i.imgur.com/fTLclzI.jpg)
 
-Checkout the [Github repository](https://github.com/johnotander/pixyll) to download it,
-request a feature, report a bug, or contribute. It's free, and open source
-([MIT](http://opensource.org/licenses/MIT)).
+## who? me?
 
-Thanks to the following:
+gabriel is a full stack web developer living in los angeles, california. he would like you to know that this site is the only place that he ever leads with that, but since we're already talking about it, he loves working with javascript (especially in node), though he's no stranger to client side logic. he's also been known to fraternize with HTML & CSS, and has worked both with single page apps and server side javascript. he's comfortable working on static sites, dynamic sites, APIs, databases, and all things in between (and beyond). he has worked with [beachcoders](https://beachcoders.com), [hackreactor](https://www.hackreactor.com), and [glo](https://www.glo.com).
 
-* [BASSCSS](http://basscss.com)
-* [Jekyll](http://jekyllrb.com)
-* [Refills](http://refills.bourbon.io/)
-* [Type Scale](http://type-scale.com/)
+* here's his [résumé](https://docs.google.com/document/d/1N39zsPEzhQh3N3zMEe52Fpbu8aMciZxZnSkjNc9kvk8/edit?usp=sharing).
+* here's his [github](https://github.com/AKingDebased) (though his coolest work is all in private repositories. you're better off reading his [posts](/)).
 
-List of contributors:
+when trying to impress people at parties, he prefers to talk about his [amateur 3d modeling](https://www.thingiverse.com/daddydagon/designs), his growing stable of 3d printers, his deep obsession with [cosplay](https://www.instagram.com/daddydagon/), weightlifting, magic: the gathering, and his ongoing quest to find a way to (legally) die with a sword in his hand, boots on his feet, and a roar in this throat.
 
-- Aaron S. Hawley
-- Adam Menges
-- Alex Claman
-- Alex Johnson
-- Alex Touchet
-- Allister Antosik
-- Amin Bandali
-- Anders Nissen
-- Andrea Margiovanni
-- Andrzej Ośmiałowski
-- Anuj More
-- Arvind Chembarpu
-- Assaf Gelber
-- Barry vd. Heuvel
-- Bartek Krzemień
-- Bartek Krzemień
-- Bennett Rogers
-- Brian Gaid
-- Brian Hurst
-- Chee Yeo
-- Cody Chan
-- Cristian Henrique
-- David Ernst
-- Donate Altenburger
-- Fernando Mantoan
-- Gurchet Rai
-- Harish Narayanan
-- Jehan Tremback
-- Jiaxi Gu (Isaac)
-- John Otander
-- Jordan Danielewski
-- Josh Buxton
-- Kirill Kulikov
-- Kyle Maxwell
-- Marta Sztybor
-- Martin Wagner
-- Matthew Graybosch
-- Maxim Tsoy
-- Mete Balci
-- Mike Lloyd
-- Mikhail Grachev
-- mindwind
-- Nick Rakochy
-- Nikolay Georgiev
-- Oliver Hamlet
-- Onur (e0i)
-- Praveer Gupta
-- Rassol (Karmeye)
-- Ricky Han
-- Roberto Pesando
-- Ryan Jacobs
-- Scott Martin
-- Selim Eren Bekçe
-- Shruti Rijhwani
-- Steef Hegeman
-- Tehmasp Chaudhri
-- Thomas Galvin
-- Timothy Gu
-- Tom Kraak
-- Vishnu Ks
-- Vladislav Arbatov
-- Yaroslav Yadrishnikov
-- Yee Chie Tu
-- Yeou Chien
+you can hit him up at [akingdebased@gmail.com](mailto:akingdebased@gmail.com), or just check out his [contact](/contact) form.

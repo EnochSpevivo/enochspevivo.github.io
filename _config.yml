@@ -7,8 +7,9 @@ baseurl:     ""
 url:         "http://akingdebased.github.io"
 date_format: "%b %-d, %Y"
 header_pages:
- - about.md
- - contact.html
+- about.md
+- contact.html
+- theme.md
 
 # Google services
 google_verification:
@@ -103,15 +104,15 @@ text:
   index:
     coming_soon: 'Coming soon...'
   contact:
-    email:    'Email Address'
-    content:  'What would you like to say?'
-    subject:  'New submission!'
-    submit:   'Say Hello'
+    email:    'your email address'
+    content:  'what''s on your mind?'
+    subject:  'new submission!'
+    submit:   'say hello!'
     ajax:
       sending:  'sending..'
-      sent:     'Message sent!'
-      error:    'Error!'
-  thanks: 'Thanks for contacting us. We will reply as soon as possible.'
+      sent:     'message sent!'
+      error:    'error!'
+  thanks: 'thanks for the message. i''ll get back to you very soon!'
   og_locale: 'en_US'
 
 # Build settings
