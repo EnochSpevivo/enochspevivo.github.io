@@ -8,6 +8,7 @@ url:         "http://akingdebased.github.io"
 date_format: "%b %-d, %Y"
 header_pages:
 - about.md
+- portfolio.md
 - contact.html
 - theme.md
 

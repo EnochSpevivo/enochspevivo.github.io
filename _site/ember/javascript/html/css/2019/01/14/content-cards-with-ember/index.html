@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>content cards with ember &#8211; gabriel gonzalvez</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="web dev, maker, and cosplayer.">
+    <meta name="robots" content="all">
+    <meta name="author" content="gabriel gonzalvez">
+    
+    <meta name="keywords" content="ember, javascript, html, css">
+    <link rel="canonical" href="http://localhost:4000/ember/javascript/html/css/2019/01/14/content-cards-with-ember/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for gabriel gonzalvez" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201901251819" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="content cards with ember">
+    <meta property="og:description" content="web dev, maker, and cosplayer.">
+    <meta property="og:url" content="http://localhost:4000/ember/javascript/html/css/2019/01/14/content-cards-with-ember/">
+    <meta property="og:site_name" content="gabriel gonzalvez">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="content cards with ember" />
+    <meta name="twitter:description" content="web dev, maker, and cosplayer." />
+    <meta name="twitter:url" content="http://localhost:4000/ember/javascript/html/css/2019/01/14/content-cards-with-ember/" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site animated fade-in-down">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://localhost:4000" class="site-title">gabriel gonzalvez</a>
+      <nav class="site-nav">
+        
+
+
+
+    
+    
+    
+    
+        <a href="/about/">about</a>
+    
+
+    
+
+    
+    
+    
+    
+
+    
+
+    
+    
+    
+    
+        <a href="/contact/">contact</a>
+    
+
+    
+
+    
+    
+    
+    
+        <a href="/theme/">theme</a>
+    
+
+    
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>content cards with ember</h1>
+  <span class="post-meta">Jan 14, 2019</span><br>
+  
+  <span class="post-meta small">
+  
+    2 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>while working at <a href="www.glo.com">glo</a>, i was tasked with creating a component for displaying the classes and programs we offered. the glo app is built on <a href="https://www.emberjs.com/">Ember.js</a>, so this feature would necessitate a new component, which would house all HTML &amp; CSS, as well as the logic for rendering &amp; functionality.</p>
+
+<h2 id="content-cards">content cards</h2>
+<p><img src="https://i.imgur.com/rGyIUZ7.jpg" alt="class content cards" />
+<img src="https://i.imgur.com/Z5DaQ71.jpg" alt="program content cards" /></p>
+
+<p>see the <a href="https://gfycat.com/UnripeAnimatedHart">class</a> and <a href="https://gfycat.com/HospitableDelayedCicada">program</a> cards in action.</p>
+
+<h2 id="implementation-notes">implementation notes</h2>
+
+<ul>
+  <li>the content cards were meant to be standardized for multiple content types, and also included a slide-up-on-hover feature. to that effect, i created a generic <code class="highlighter-rouge">content-card.js</code> and accompanying <code class="highlighter-rouge">card-image.js</code> component. all content cards also needed a button that would allow a user to add/remove that class to a dashboard. in addition, when hovering, a description becomes visible, with a gradient at the bottom. below are some snippets of my work:</li>
+</ul>
+
+<p><strong>note</strong>: for NDA purposes, all code here is heavily edited, and may seem non-functional in some places. feel free to <a href="/contact">ask me any questions</a> if you’re concerned about the sensibility of these snippets.</p>
+
+<div class="language-hbs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{!-- content-card.hbs --}
+
+<span class="k">{{</span><span class="nv">card-image</span> <span class="nv">class</span><span class="o">=</span><span class="nv">class</span> <span class="nv">isHovering</span><span class="o">=</span><span class="nv">isHovering</span><span class="k">}}</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-card__copy-container"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-card__copy-header"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-card__content-type"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">contentType</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+
+		<span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'levels'</span><span class="k">}}</span>Level <span class="k">{{</span><span class="nv">class</span><span class="p">.</span><span class="nv">level</span><span class="p">.</span><span class="nv">name</span><span class="k">}}{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+
+		<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"content-card__stat content-card__stat--duration"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">class</span><span class="p">.</span><span class="nv">video</span><span class="p">.</span><span class="nv">duration</span><span class="k">}}</span> min<span class="nt">&lt;/span&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-card__copy-body"</span><span class="nt">&gt;</span>
+		<span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'class'</span> <span class="nv">class</span><span class="p">.</span><span class="nv">id</span><span class="k">}}{{</span><span class="nv">class</span><span class="p">.</span><span class="nv">title</span><span class="k">}}{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-card__content-subtitle"</span><span class="nt">&gt;</span>
+			<span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'styles.style'</span> <span class="nv">class</span><span class="p">.</span><span class="nv">style</span><span class="p">.</span><span class="nv">slug</span> <span class="nv">active</span><span class="o">=</span><span class="kc">false</span> <span class="nv">classNames</span><span class="o">=</span><span class="s1">'f-gray-6'</span><span class="k">}}{{</span><span class="nv">class</span><span class="p">.</span><span class="nv">style</span><span class="p">.</span><span class="nv">name</span><span class="k">}}{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+
+			<span class="k">{{#if</span> <span class="nv">class</span><span class="p">.</span><span class="nv">teachers</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span>
+				with <span class="k">{{#</span><span class="nn">each</span> <span class="nv">class</span><span class="p">.</span><span class="nv">teachers</span> <span class="nv">as</span> <span class="err">|</span><span class="nv">teacher</span><span class="err">|</span><span class="k">}}</span>
+					<span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'teachers.teacher'</span> <span class="nv">teacher</span><span class="p">.</span><span class="nv">slug</span> <span class="nv">classNames</span><span class="o">=</span><span class="s1">'f-gray-6'</span><span class="k">}}{{</span><span class="nv">teacher</span><span class="p">.</span><span class="nv">name</span><span class="k">}}{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+				<span class="k">{{/</span><span class="nn">each</span><span class="k">}}</span>
+			<span class="k">{{/if}}</span>
+		<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+
+	<span class="k">{{</span><span class="nv">add-class-button</span><span class="k">}}</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-card__description </span><span class="k">{{</span><span class="nv">if</span> <span class="nv">isHovering</span> <span class="s1">'content-card__description--hover'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{{</span><span class="nv">class</span><span class="p">.</span><span class="nv">cleanDescription</span><span class="k">}}}</span><span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-card__gradient </span><span class="k">{{</span><span class="nv">if</span> <span class="err">(</span><span class="nv">comparison</span> <span class="nv">isHovering</span> <span class="s1">'&amp;&amp;'</span> <span class="nv">showGradient</span><span class="err">)</span> <span class="s1">'content-card__gradient--hover'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// card-image.js</span>
+<span class="c1">// components in ember are automatically associated with `div`, and i determined that this component would not need a custom template</span>
+
+<span class="k">import</span> <span class="nx">Component</span> <span class="k">from</span> <span class="s1">'@ember/component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="kd">get</span><span class="p">,</span> <span class="nx">computed</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@ember/object'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Component</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+	<span class="na">tagName</span><span class="p">:</span> <span class="s1">'img'</span><span class="p">,</span>
+	<span class="na">attributeBindings</span><span class="p">:</span> <span class="p">[</span><span class="s1">'src'</span><span class="p">,</span> <span class="s1">'style'</span><span class="p">],</span>
+	<span class="na">classNameBindings</span><span class="p">:</span> <span class="p">[</span>
+		<span class="s1">':content-card__image'</span><span class="p">,</span>
+		<span class="s1">'isHovering:content-card__image--hide'</span>
+	<span class="p">],</span>
+
+	<span class="na">src</span><span class="p">:</span> <span class="nx">computed</span><span class="p">(</span><span class="s1">'class.{video.firstPreviewThumbnail,video.thumbnailImage}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">highResThumb</span> <span class="o">=</span> <span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'class.video.firstPreviewThumbnail'</span><span class="p">);</span>
+
+		<span class="k">return</span> <span class="nx">highResThumb</span> <span class="p">?</span> <span class="nx">highResThumb</span> <span class="p">:</span> <span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'class.video.thumbnailImage'</span><span class="p">);</span>
+	<span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>there was a need for a bit of jQuery to detect when to show &amp; hide the gradient over the content’s description.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// snippet from content-card.js</span>
+
+<span class="nx">didInsertElement</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">(...</span><span class="kr">arguments</span><span class="p">)</span>
+
+	<span class="c1">// Event handler to show/hide gradient when scrolled to bottom of description</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.content-card__description'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'scroll.description'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="kd">const</span> <span class="nx">$element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">),</span>
+			<span class="nx">scrollPosition</span> <span class="o">=</span> <span class="nx">$element</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">$element</span><span class="p">.</span><span class="nx">scrollTop</span><span class="p">(),</span>
+			<span class="nx">divHeight</span> <span class="o">=</span> <span class="nx">$element</span><span class="p">.</span><span class="nx">outerHeight</span><span class="p">(),</span>
+			<span class="nx">bottomOffset</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+			<span class="nx">scrolledToBottom</span> <span class="o">=</span> <span class="nx">scrollPosition</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="nx">divHeight</span> <span class="o">+</span> <span class="nx">bottomOffset</span><span class="p">);</span>
+
+		<span class="kd">set</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'showGradient'</span><span class="p">,</span> <span class="o">!</span><span class="nx">scrolledToBottom</span><span class="p">);</span>
+	<span class="p">});</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isTouch</span><span class="p">())</span> <span class="kd">set</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'hideAddClassButton'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>in the case that a content card links to a program (a specialized piece of content that users can enroll in), there needed to be logic that routed the user either to the enrolled or unenrolled version of the program page.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// snippet from content-card.js</span>
+
+<span class="nx">click</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="nx">transitionPage</span> <span class="o">=</span> <span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'transitionPage'</span><span class="p">),</span>
+		<span class="nx">content</span> <span class="o">=</span> <span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'content'</span><span class="p">),</span>
+		<span class="nx">contentId</span> <span class="o">=</span> <span class="kd">get</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="s1">'id'</span><span class="p">);</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'isProgramCard'</span><span class="p">))</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'userPrograms.firstObject'</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nx">transitionPage</span><span class="p">(</span><span class="s1">'programs.program'</span><span class="p">,</span> <span class="nx">contentId</span><span class="p">);</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'userPrograms.firstObject'</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nx">transitionPage</span><span class="p">(</span><span class="s1">'me.my-program'</span><span class="p">,</span> <span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'userPrograms.firstObject.id'</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="kd">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">'isClassCard'</span><span class="p">))</span> <span class="p">{</span>
+		<span class="nx">transitionPage</span><span class="p">(</span><span class="s1">'class'</span><span class="p">,</span> <span class="nx">contentId</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">GitHub</a>.
+    </small>
+  </div>
+</footer>
+
+
+</body>
+</html>
