@@ -13,7 +13,8 @@ gabriel is a front end web developer living in los angeles, california. he would
 
 * here's his [résumé](https://docs.google.com/document/d/1N39zsPEzhQh3N3zMEe52Fpbu8aMciZxZnSkjNc9kvk8/edit?usp=sharing).
 * here's his [github](https://github.com/AKingDebased) (though his coolest work is all in private repositories. you're better off reading his [posts](/)).
+* here's his [linkedin](https://www.linkedin.com/in/gabriel-gonzalvez-927b51ab/), if you want to see the nice things coworkers have said about him
 
-when trying to impress people at parties, he prefers to talk about his [amateur 3d modeling](https://www.thingiverse.com/daddydagon/designs), his growing stable of 3d printers, his deep obsession with [cosplay](https://www.instagram.com/daddydagon/), weightlifting, magic: the gathering, and his ongoing quest to find a way to (legally) die with a sword in his hand, boots on his feet, and a roar in this throat.
+when trying to impress people at parties, he prefers to talk about his [amateur 3d modeling](https://www.etsy.com/shop/TheFaithlessForge), his growing stable of 3d printers, his deep obsession with [cosplay](https://www.instagram.com/faithlessfew/), weightlifting, magic: the gathering, and his ongoing quest to find a way to (legally) die with a sword in his hand, boots on his feet, and a roar in this throat.
 
 you can hit him up at [akingdebased@gmail.com](mailto:akingdebased@gmail.com), or just check out his [contact](/contact) form.
