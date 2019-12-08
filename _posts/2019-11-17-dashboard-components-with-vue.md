@@ -24,7 +24,7 @@ the description component needed to take in a payload containing the following:
 to that end, the component didn't require any computed properties. static values could simply be passed in and rendered.
 
 **note:** code here is not directly copied from the codebase, and instead represents a hypothetical implementation approximating my original implementation'
-
+{% raw %}
 ```js
 // integration-description.vue
 
@@ -40,7 +40,7 @@ export default {
 
 // CSS has been omitted in this case, though obviously some styling is necessary to keep this looking spiffy
 ```
-
+{% endraw %}
 a simple, no frills component, designed to simply render data passed into it with little muss or fuss. the original integration page had a _lot_ of copy/pasted code, and a small component like this allowed us to instead iterate over a JSON representation of all that integrations, vastly shrinking the HTML file.
 
 ```HTML
