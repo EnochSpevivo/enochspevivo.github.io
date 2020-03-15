@@ -44,7 +44,8 @@ export default {
 {% endraw %}
 a simple, no frills component, designed to simply render data passed into it with little muss or fuss. the original integration page had a _lot_ of copy/pasted code, and a small component like this allowed us to instead iterate over a JSON representation of all that integrations, vastly shrinking the HTML file.
 
-```HTML
+{% raw %}
+```html
 <!-- The original page might have looked something like this -->
 
 <div class="integration-description-container">
@@ -55,6 +56,7 @@ a simple, no frills component, designed to simply render data passed into it wit
 
 <!-- This block was then repeated, with only minor tweaks, for all of our 20+ integrations. Not the DRYest page in the world -->
 ```
+{% endraw %}
 
 now, with this new component, we could do something like this:
 
@@ -63,7 +65,7 @@ var integrationsContainer = new Vue({
     el: '#integrations-container',
     data: {
         integrationData: [
-            /* Imagine here a JSON containting all of our integration data */
+            /* Imagine here a JSON containing all of our integration data */
         ]
     }
 })

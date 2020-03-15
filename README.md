@@ -1,3 +1,7 @@
+# Special Usage Notes
+
+* `ruamel` is a required package for building the tags & categories feature. Make sure to run `pip3 install ruamel.yaml` before running any of the bash scripts.
+
 # Jekyll Theme Chirpy
 
 [![Build Status](https://github.com/cotes2020/jekyll-theme-chirpy/workflows/build/badge.svg?event=push)](https://github.com/cotes2020/jekyll-theme-chirpy/actions?query=event%3Apush)
