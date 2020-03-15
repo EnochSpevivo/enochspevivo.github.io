@@ -1,11 +1,10 @@
 ---
-layout: post
 title:  "simple, responsive page - no frameworks, no libraries"
-date:   2019-11-17
-categories: javascript html css
+date:   2020-3-12
+categories: [javascript, html, css]
+tags: [javascript, html, css]
+toc: false
 ---
-
-## tl;dr 
 
 you can see the final page [here](https://gabriel-activision-assessment.firebaseapp.com/), and the code that powers it [here](https://github.com/AKingDebased/activision-take-home). if you want to understand what went into creating this, read on!
 
@@ -13,16 +12,21 @@ you can see the final page [here](https://gabriel-activision-assessment.firebase
 
 95% of my professional experience has involved work with single page applications using frameworks & libraries like Ember, Vue, and React. don't get me wrong; i absolutely love the power a solid JS library/framework will give you. these days, if you're developing a progressive web app, you're almost always going to want to employ a framework or library. that said, every now and then, it pays to revisit the basics, and see what you can do with just the fundamental tools.
 
-i was recently given a take home project from a company i was interviewing with. they wanted me to take the following mocks — one for deskop, one for mobile — and produce a responsive page. the `Learn more` button, when clicked, needed to pop open a modal with a video in it. they also _specifically_ requested this use only html, css, and vanilla js (they were particularly adamant about "not relying on bootstrap", which was just a little bit funny, but i digress)
+i was recently given a take home project from a company i was interviewing with. they wanted me to take the following mocks — one for deskop, one for mobile — and produce a responsive page. the `Learn more` button, when clicked, needed to pop open a modal with a video in it. they also _specifically_ requested this use only html, css, and vanilla js. they were particularly adamant about "not relying on bootstrap", a challenge i was eager to rise to.
 
-<div style="text-align: center; ">
-    <a style="text-decoration: none; background-image: none;" target="_blank"  href="https://i.imgur.com/7nCCeH1.jpg">
-        <img src="https://i.imgur.com/7nCCeH1.jpg" width="500"/>
-    </a>
-    <a style="text-decoration: none; background-image: none;" target="_blank" href="https://i.imgur.com/BvJIt6p.jpg">
-        <img src="https://i.imgur.com/BvJIt6p.jpg" width="200"/>
-    </a>
-</div>
+<style>
+.post-content a.img-link {
+    border-bottom: none !important;
+    display: block;
+}
+</style>
+<a class="img-link" target="_blank"  href="https://i.imgur.com/7nCCeH1.jpg">
+    <img src="https://i.imgur.com/7nCCeH1.jpg" width="500"/>
+</a>
+<a class="img-link" target="_blank" href="https://i.imgur.com/BvJIt6p.jpg">
+    <img src="https://i.imgur.com/BvJIt6p.jpg" width="200"/>
+</a>
+
 
 while not the most challenging task in the world, i relished the opportunity to, just for a moment, cast aside all the new and shiny tools of modern web development, and bring it back to basics. let's dig into the code.
 

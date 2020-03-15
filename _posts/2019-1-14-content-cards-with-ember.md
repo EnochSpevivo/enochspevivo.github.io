@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "content cards with ember"
 date:   2019-1-14
-categories: ember javascript html css
+categories: [ember, javascript, html, css]
+tags: [ember, javascript, html, css]
+toc: false
 ---
 
 

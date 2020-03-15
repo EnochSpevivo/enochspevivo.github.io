@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "backing up minecraft servers"
 date:   2016-05-31
-categories: minecraft, snippets
+categories: [minecraft, snippets]
+tags: [minecraft, snippets]
+toc: false
 ---
 
 recently, my roommate and i have been playing a lot of minecraft. i've been hosting a local server for us, and keeping all the files stored on my main computer. however, idiots that we are, there's more than a few times that we need to roll back to previous versions.  luckily, server back ups are as simple as copying the `world` folder. so, i wrote this tiny bash script to do just that:

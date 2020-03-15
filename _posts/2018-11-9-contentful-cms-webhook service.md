@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "webhook microservice with express, contentful, and objection"
 date:   2018-8-13
-categories: contentful orm webhook node express glo
+categories: [node, express, contentful, orm, javascript]
+tags: [node, express, contentful, orm, javascript]
+toc: false
 ---
 
 there's few things i love more than automating processes. i used to work on the [glo](https://www.glo.com/) team as a web developer, and amongst many other features, glo offers programs, which allow users to take thematically linked classes of a certain difficulty in a progressive order. for a long time, program classes had to be manually inputted into our database by an engineer. programs could have anywhere between 3 and 54 classes, so this got tedious fast. we wanted to shift this responsibility from our devs to our content team, such that there would be no need for a dev to upload new programs. i saw this as a great opportunity to automate a tedious process. the services team and i decided a [cms](https://en.wikipedia.org/wiki/Content_management_system) was our best option. i spearheaded this project and, after a bit of research, i encouraged us to use [contentful](https://www.contentful.com/).

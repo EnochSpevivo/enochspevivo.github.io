@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "aws alerts & slack integration"
 date:   2019-1-05
-categories: aws elasticache slack lambda
+categories: [aws, elasticache, slack, lambda, javascript, node]
+tags: [aws, elasticache, slack, lambda, javascript, node]
+toc: false
 ---
 
 i used to work on the [glo](https://www.glo.com/) team, and while there, we used [amazon elasticache](https://aws.amazon.com/elasticache/) for all of our caching needs. the decision to move to elasticache happened during my tenure, shortly after we had issues with our locally hosted [redis](https://redis.io/) service crashing. we decided to delegate responsibility for cache hosting onto amazon.  as a member of the web team, i took it upon myself to a) set up our elasticache settings and b) implement a slack integration that would chirp out helpful status alerts based on certain metrics.

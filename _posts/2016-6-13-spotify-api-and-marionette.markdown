@@ -1,9 +1,11 @@
 ---
-layout: post
 title:  "spotify api and marionette"
 date:   2016-06-13
-categories: backbone, marionette,
+categories: [backbone, marionette]
+tags: [backbone, marionette]
+toc: false
 ---
+
 ~~you can find the final application [here](https://project-2181696919058931612.firebaseapp.com/)~~ **author's note:** though this link still works, spotify has long since changed its api such that this app no longer works as originally designed. you can still look at it, though!
 
 spotify has a great [api](https://developer.spotify.com/web-api/) that allows you to, among other things, search song, artist, and album information. one of the end points they supply gives a listing of a given artist's top 10 tracks by country (according to spotify). with that in mind, let me take you back to the frontier days of 2006. back then, there was this great little website called "i just want to listen to the best of..." that allowed you to search up an artist and listen to their most popular tracks (according to grooveshark). turns out that site no longer exists. so, i'm here to fill the void.

@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "sha1 filter with jinja"
 date:   2019-10-15
-categories: jinja python
+categories: [jinja, python, sha1]
+tags: [jinja, python, sha1]
+toc: false
 ---
 
 

@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "dashboard components with vue"
 date:   2019-11-17
-categories: javascript vue html css
+categories: [javascript, vue, html, css]
+tags: [javascript, vue, html, css]
+toc: false
 ---
 
 

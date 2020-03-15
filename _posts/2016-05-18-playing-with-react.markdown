@@ -1,8 +1,9 @@
 ---
-layout: post
 title:  "playing with react"
 date:   2016-05-18
-categories: react
+categories: [react, javascript]
+tags: [react, javascript]
+toc: false
 ---
 
 so, after a short stint with backbone and marionette, i've <strike>hopped on the bandwagon</strike> tried out the latest hotness on the scene, react.js.
