@@ -1,9 +1,11 @@
 ---
-title:  "dashboard components with vue"
-date:   2019-11-17
+title: dashboard components with vue
+date: 2019-11-17
 categories: [javascript, vue, html, css]
 tags: [javascript, vue, html, css]
 toc: false
+seo:
+  date_modified: 2020-03-15 14:48:30 -0700
 ---
 
 

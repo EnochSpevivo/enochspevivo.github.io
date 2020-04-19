@@ -1,9 +1,11 @@
 ---
-title:  "sha1 filter with jinja"
-date:   2019-10-15
+title: sha1 filter with jinja
+date: 2019-10-15
 categories: [jinja, python, sha1]
 tags: [jinja, python, sha1]
 toc: false
+seo:
+  date_modified: 2020-03-15 14:38:45 -0700
 ---
 
 

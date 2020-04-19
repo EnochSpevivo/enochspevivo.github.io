@@ -1,9 +1,11 @@
 ---
-title:  "content cards with ember"
-date:   2019-1-14
+title: content cards with ember
+date: 2019-1-14
 categories: [ember, javascript, html, css]
 tags: [ember, javascript, html, css]
 toc: false
+seo:
+  date_modified: 2020-03-15 14:38:45 -0700
 ---
 
 

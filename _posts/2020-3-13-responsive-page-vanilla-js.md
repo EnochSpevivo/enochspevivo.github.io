@@ -1,9 +1,11 @@
 ---
-title:  "simple, responsive page - no frameworks, no libraries"
-date:   2020-3-12
+title: simple, responsive page - no frameworks, no libraries
+date: 2020-3-12
 categories: [javascript, html, css]
 tags: [javascript, html, css]
 toc: false
+seo:
+  date_modified: 2020-03-15 14:38:45 -0700
 ---
 
 you can see the final page [here](https://gabriel-activision-assessment.firebaseapp.com/), and the code that powers it [here](https://github.com/AKingDebased/activision-take-home). if you want to understand what went into creating this, read on!
