@@ -18,8 +18,8 @@ img {
 
 </style>
 
-<a href="https://i.imgur.com/fTLclzI.jpg" target="_blank">
-    <img src="https://i.imgur.com/fTLclzI.jpg" alt="a man of valor">
+<a href="https://i.imgur.com/Chi69lH.png" target="_blank">
+    <img src="https://i.imgur.com/Chi69lH.png" alt="a man of valor">
 </a>
 
 ## who? me?
