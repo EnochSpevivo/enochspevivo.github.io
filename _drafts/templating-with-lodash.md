@@ -8,6 +8,10 @@ seo:
   date_modified: 2020-06-11 11:37:45 -0700
 ---
 
+often, while working on static sites, i find myself longing for the component systems you find in libraries like vue or react. i'm sure you've found yourself needing to repeat a piece of content, where each element is identical but for a few variables, such as diffent titles, or different images. recently, i was working on a landing page for [iFit](https://www.ifit.com/), and there was a just such a need. one section of the page called for a grid of content cards, like so:
+
+![ifit content cards]('../assets/img/posts/ifit-cards.png')
+
 {% raw %}
 ```HTML
 <script id="grid-card-template" type="template">
