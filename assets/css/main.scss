@@ -235,7 +235,8 @@ $tab-count: {{ site.data.tabs | size }};
 
   img {
     width: 100%;
-    height: 100%;
+    // TODO: may need to be altered depending on the avatar
+    // height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-transition: all .5s !important;

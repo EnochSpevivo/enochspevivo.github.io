@@ -1,6 +1,7 @@
 ---
 title: Work Samples
 ---
+
 <style>
     .designs-container, .row {
         display: flex;
@@ -41,7 +42,7 @@ title: Work Samples
         transition: opacity 0.3s;
     }
 
-    .work-sample__desktop-view, .work-sample__mobile-view {
+    .work-sample__web, .work-sample__desktop-view, .work-sample__mobile-view {
         display: flex;
         flex-basis: 50%;
         align-items: center;
@@ -50,6 +51,12 @@ title: Work Samples
 
     .work-sample__desktop-view {
         border-right: 2px solid white;
+    }
+
+    .work-sample__solo {
+        border-right: 0;
+        border-left: 0;
+        flex-basis: 100%;
     }
 
     .work-sample__overlay--show {
@@ -86,10 +93,12 @@ title: Work Samples
         }
     }
 </style>
+
 ## web design
 
 ### glo
-* [glo](https://glo.com/) is an online health & wellness website dedicated to providing high quality yoga videos & lectures to subscribers. these are just a few of the designs i developed & implemented on the production site. **note:** some of these designs are no longer live, so provided below are screenshots.
+
+- [glo](https://glo.com/) is an online health & wellness website dedicated to providing high quality yoga videos & lectures to subscribers. these are just a few of the designs i developed & implemented on the production site. **note:** some of these designs are no longer live, so provided below are screenshots.
 
 [comment]: <> (DRY up this implementation, use Jekyll meta data)
 
@@ -98,31 +107,23 @@ title: Work Samples
         <div class="work-sample__container">
             <img class="work-sample" src="/assets/img/work-samples/glo/thumbnails/teacher-desktop.png" alt="glo teacher work sample" title="glo teacher work sample">
             <div class="work-sample__overlay">
-                <div class="work-sample__desktop-view">
-                    <a href="https://i.imgur.com/sSl1Um1.png">
-                        <i class="fas fa-desktop"></i>
-                    </a>
-                </div>
-                <div class="work-sample__mobile-view">
-                    <a href="https://i.imgur.com/LjygdTI.png">
-                        <i class="fas fa-mobile-alt"></i>
-                    </a>
-                </div>
+                <a class="work-sample__desktop-view" href="https://i.imgur.com/sSl1Um1.png" target="_blank">
+                    <i class="fas fa-desktop"></i>
+                </a>
+                <a class="work-sample__mobile-view" href="https://i.imgur.com/LjygdTI.png" target="_blank">
+                    <i class="fas fa-mobile-alt"></i>
+                </a>
             </div>
         </div>
         <div class="work-sample__container">
             <img class="work-sample" src="/assets/img/work-samples/glo/thumbnails/courses-desktop.png" alt="glo teacher work sample" title="glo teacher work sample">
             <div class="work-sample__overlay">
-                <div class="work-sample__desktop-view">
-                    <a href="https://i.imgur.com/2Ifm483.jpg">
-                        <i class="fas fa-desktop"></i>
-                    </a>
-                </div>
-                <div class="work-sample__mobile-view">
-                    <a href="https://i.imgur.com/X6D1NTd.png">
-                        <i class="fas fa-mobile-alt"></i>
-                    </a>
-                </div>
+                <a href="https://i.imgur.com/2Ifm483.jpg" class="work-sample__desktop-view" target="_blank">
+                    <i class="fas fa-desktop"></i>
+                </a>
+                <a href="https://i.imgur.com/X6D1NTd.png" class="work-sample__mobile-view" target="_blank">
+                    <i class="fas fa-mobile-alt"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -130,31 +131,23 @@ title: Work Samples
         <div class="work-sample__container">
             <img class="work-sample" src="/assets/img/work-samples/glo/thumbnails/cancel-desktop.png" alt="glo cancel work sample" title="glo cancel work sample">
             <div class="work-sample__overlay">
-                <div class="work-sample__desktop-view">
-                    <a href="https://i.imgur.com/ird04RC.png">
-                        <i class="fas fa-desktop"></i>
-                    </a>
-                </div>
-                <div class="work-sample__mobile-view">
-                    <a href="https://i.imgur.com/wznLJQs.png">
-                        <i class="fas fa-mobile-alt"></i>
-                    </a>
-                </div>
+                <a href="https://i.imgur.com/ird04RC.png" class="work-sample__desktop-view" target="_blank">
+                    <i class="fas fa-desktop"></i>
+                </a>
+                <a href="https://i.imgur.com/wznLJQs.png" class="work-sample__mobile-view" target="_blank">
+                    <i class="fas fa-mobile-alt"></i>
+                </a>
             </div>
         </div>
         <div class="work-sample__container">
             <img class="work-sample" src="/assets/img/work-samples/glo/thumbnails/search-desktop.png" alt="glo search work sample" title="glo search work sample">
             <div class="work-sample__overlay">
-                <div class="work-sample__desktop-view">
-                    <a href="https://i.imgur.com/nzMOMIJ.png">
-                        <i class="fas fa-desktop"></i>
-                    </a>
-                </div>
-                <div class="work-sample__mobile-view">
-                    <a href="#">
-                        <i class="fas fa-mobile-alt"></i>
-                    </a>
-                </div>
+                <a href="https://i.imgur.com/nzMOMIJ.png"  class="work-sample__desktop-view" target="_blank">
+                    <i class="fas fa-desktop"></i>
+                </a>
+                <a href="#" class="work-sample__mobile-view" target="_blank">
+                    <i class="fas fa-mobile-alt"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -162,32 +155,41 @@ title: Work Samples
         <div class="work-sample__container">
             <img class="work-sample" src="/assets/img/work-samples/glo/thumbnails/settings-desktop.png" alt="glo settings work sample" title="glo settings work sample">
             <div class="work-sample__overlay">
-                <div class="work-sample__desktop-view">
-                    <a href="https://i.imgur.com/AsBZnZ6.png">
-                        <i class="fas fa-desktop"></i>
-                    </a>
-                </div>
-                <div class="work-sample__mobile-view">
-                    <a href="https://i.imgur.com/p2NbMVP.png">
-                        <i class="fas fa-mobile-alt"></i>
-                    </a>
-                </div>
+                <a href="https://i.imgur.com/AsBZnZ6.png" class="work-sample__desktop-view" target="_blank">
+                    <i class="fas fa-desktop"></i>
+                </a>
+                <a href="https://i.imgur.com/p2NbMVP.png" class="work-sample__mobile-view" target="_blank">
+                    <i class="fas fa-mobile-alt"></i>
+                </a>
             </div>
         </div>
         <div class="work-sample__container">
             <img class="work-sample" src="/assets/img/work-samples/glo/thumbnails/career-desktop.png" alt="glo career work sample" title="glo career work sample">
             <div class="work-sample__overlay">
-                <div class="work-sample__desktop-view">
-                    <a href="https://i.imgur.com/PFPUF7A.png">
-                        <i class="fas fa-desktop"></i>
-                    </a>
-                </div>
-                <div class="work-sample__mobile-view">
-                    <a href="https://i.imgur.com/7LJpC8M.png">
-                        <i class="fas fa-mobile-alt"></i>
-                    </a>
-                </div>
+                <a href="https://i.imgur.com/PFPUF7A.png" class="work-sample__desktop-view" target="_blank">
+                    <i class="fas fa-desktop"></i>
+                </a>
+                <a href="https://i.imgur.com/7LJpC8M.png" class="work-sample__mobile-view" target="_blank">
+                    <i class="fas fa-mobile-alt"></i>
+                </a>
             </div>
+        </div>
+    </div>
+</div>
+
+### fls international
+
+- [FLS International](https://www.flsinternationalonline.net/) is an ESL school based in Los Angeles, CA. While working there, I helped them develop critical web app features as part of their transition to remote learning, particularly their student proficiency test.
+
+<div class="designs-container">
+    <div class="row">
+        <div class="work-sample__container">
+            <img class="work-sample" src="/assets/img/work-samples/fls/thumbnails/proficiency-test.png" alt="proficiency test thumbnail">
+            <a class="work-sample__overlay" href="https://fls-international.web.app/" target="_blank">
+                <div class="work-sample__web work-sample__solo">
+                    <i class="fas fa-globe"></i>
+                </div>
+            </a>
         </div>
     </div>
 </div>
@@ -205,8 +207,3 @@ title: Work Samples
         });
     });
 </script>
-
-
-
-
-				
