@@ -1,44 +1,33 @@
 ---
-layout: page
+layout: compress
 # The Home page layout
-# v2.0
-# https://github.com/cotes2020/jekyll-theme-chirpy
-# © 2017-2019 Cotes Chung
+# © 2021 - 2021 Gabriel Gonzalve
 # MIT Licensed
 ---
+<!DOCTYPE html>
 
-<div id="post-list">
-  {% for post in paginator.posts %}
-  <div class="post-preview">
-    <h1>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </h1>
-    <div class="post-content">
-      <p>
-      {{ post.content | strip_html | truncate: 200 | replace: '&', '&amp;' }}
-      </p>
+{% capture prefer_mode %}
+  {% if site.theme_mode != "dual" %}
+    mode="{{ site.theme_mode }}"
+  {% endif %}
+{% endcapture %}
+
+<html lang="en" {{ prefer_mode }} >
+
+  {% include head.html %}
+
+  <body>
+    <div>
+      <h1>this is a test of a brand new homepage</h1>
+
+      <a href="/blog">see the blog here!</a>
     </div>
 
-    <div class="post-meta text-muted pt-1">
-      <!-- posted date -->
-      <i class="far fa-clock fa-fw"></i>
-      <span class="timeago" data-toggle="tooltip" data-placement="bottom"
-        title="{{ post.date | date: site.data.date_format.tooltip }}">
-      {{ post.date | date: site.data.date_format.post }}
-      <i class="unloaded">{{ post.date | date_to_xmlschema }}</i>
-      </span>
-      <!-- page views -->
-      {% if site.google_analytics.pv %}
-      <i class="far fa-eye fa-fw"></i>
-      <span id="pv_{{-post.title-}}" class="pageviews">
-        <i class="fas fa-spinner fa-spin fa-fw"></i>
-      </span>
-      {% endif %}
-    </div>
-  </div> <!-- .post-review -->
-  {% endfor %}
-</div> <!-- #post-list -->
+    {% if jekyll.environment == 'production' %}
+    {% include google-analytics.html %}
+    {% endif %}
 
-{% if paginator.total_pages > 0 %}
-  {% include post-paginator.html %}
-{% endif %}
+    {% include search-loader.html %}
+  </body>
+
+</html>

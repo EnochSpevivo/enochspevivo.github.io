@@ -82,6 +82,8 @@ toc: true
 
 paginate: 10
 
+paginate_path: "/blog/:num/"
+
 markdown: kramdown
 
 highlighter: rouge
