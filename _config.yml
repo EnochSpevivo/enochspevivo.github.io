@@ -9,11 +9,11 @@
 
 title: gabriel gonzalvez # the main title
 
-tagline: professional web developer, tech enthusiast, and (costume) armorer, from sunny los angeles # it will display as the sub-title
+tagline: professional web developer, hobbyist maker, and general dilettante from seattle, washington # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  portfolio blog for gabriel gonzalvez, a los angeles based web developer
-  with over 8 years of professional experience.`
+  portfolio blog for gabriel gonzalvez, a seattle based web developer
+  with a decade of professional experience.`
 
 # Replace with your domain, e.g. 'https://username.github.io'
 url: "https://akingdebased.github.io"

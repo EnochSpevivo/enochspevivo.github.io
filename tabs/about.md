@@ -21,7 +21,7 @@ img {
 
 ## who? me?
 
-hey there! i'm gabriel, a front end web developer living in los angeles, california. i'd like you to know that this site is the only place i ever lead with that bit of info, but since we're already talking about it, i love working with javascript (especially in node), though i'm no stranger to client side logic. i've also been known to fraternize with HTML & CSS, and i've developed single page apps and server side, database logic. i'm comfortable working on static sites, dynamic sites, APIs, databases, and all things in between (and beyond). here's just a few of the places i've worked:
+hey there! i'm gabriel, a front end web developer living in seattle, washington. i'd like you to know that this site is the only place i ever lead with that bit of info, but since we're already talking about it, i love working with javascript (especially in node), though i'm no stranger to client side logic. i've also been known to fraternize with HTML & CSS, and i've developed single page apps and server side, database logic. i'm comfortable working on static sites, dynamic sites, APIs, databases, and all things in between (and beyond). here's just a few of the places i've worked:
 
 * [beachcoders](https://beachcoders.com)
 * [hackreactor](https://www.hackreactor.com)
@@ -30,6 +30,7 @@ hey there! i'm gabriel, a front end web developer living in los angeles, califor
 * [FLS International](https://www.linkedin.com/company/fls-international/)
 * [NBC News](https://www.nbcnews.com/)
 * [Verys, a West Monroe Company](https://view.westmonroe.com/verys/p/1)
+* [LinkedIn](https://www.linkedin.com/)
 
 though i have worked with in-house teams (i'm a hoot to chat to at the old water cooler), i transitioned into full time, remote, web development in 2019. i have a great deal of experience with the realities of work-from-home life, and the tools of the remote workforce.
 
