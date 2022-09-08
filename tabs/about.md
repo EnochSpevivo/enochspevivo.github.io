@@ -35,9 +35,9 @@ hey there! i'm gabriel, a front end web developer living in seattle, washington.
 though i have worked with in-house teams (i'm a hoot to chat to at the old water cooler), i transitioned into full time, remote, web development in 2019. i have a great deal of experience with the realities of work-from-home life, and the tools of the remote workforce.
 
 - here's my [résumé](https://docs.google.com/document/d/18aB1gV9nbEsj36O1ULnJs-pF1VNVbuvNH7Hq1EWfCrM/edit?usp=sharing).
-- here's my [github](https://github.com/AKingDebased) (though my coolest work is all in private repositories. you're better off reading my [posts](/)).
+- here's my [github](https://github.com/EnochSpevivo) (though my coolest work is all in private repositories. you're better off reading my [posts](/)).
 - here's my [linkedin](https://www.linkedin.com/in/gabriel-gonzalvez-927b51ab/), if you want to see the nice things coworkers have said about me
 
 when trying to impress people at parties, i prefer to talk about my amateur 3d modeling, my growing stable of 3d printers, prop making, weightlifting, magic: the gathering, and my ongoing quest to find a way to (legally) fight with a sword in my hand, boots on my feet, and a roar in my throat.
 
-you can (and should!) reach out to me at [akingdebased@gmail.com](mailto:akingdebased@gmail.com)
+you can (and should!) reach out to me at [enochspevivo@gmail.com](mailto:enochspevivo@gmail.com)

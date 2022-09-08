@@ -10,7 +10,7 @@ seo:
 
 ## i just want to see the thing
 
-you can see the final page [here](https://gabriel-activision-assessment.firebaseapp.com/), and the code that powers it [here](https://github.com/AKingDebased/activision-take-home). if you want to understand what went into creating this, read on!
+you can see the final page [here](https://gabriel-activision-assessment.firebaseapp.com/), and the code that powers it [here](https://github.com/EnochSpevivo/activision-take-home). if you want to understand what went into creating this, read on!
 
 ## the task
 

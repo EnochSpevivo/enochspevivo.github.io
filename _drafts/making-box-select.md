@@ -25,7 +25,7 @@ in my time with [Verys](https://www.verys.com/), i was a senior engineer on a te
 
 ## i just want to see the thing
 
-you can see the proficiency test app [here](https://fls-international.web.app/). here's the [github repo](https://github.com/AKingDebased/fls-proficiency-test).
+you can see the proficiency test app [here](https://fls-international.web.app/). here's the [github repo](https://github.com/EnochSpevivo/fls-proficiency-test).
 
 ## the background
 
@@ -44,7 +44,7 @@ back in 2020, i was contracted by [FLS International](https://www.flsinternation
 
 ## creating a node app
 
-based on my experience, and the requirements, i decided that a Node app using the [Express](https://expressjs.com/) framework would be the quickest, most reliable, way to get this app into production. the full logic can be viewed [here](https://github.com/AKingDebased/fls-proficiency-test/blob/main/functions/index.js), but let's break down some specific design considerations.
+based on my experience, and the requirements, i decided that a Node app using the [Express](https://expressjs.com/) framework would be the quickest, most reliable, way to get this app into production. the full logic can be viewed [here](https://github.com/EnochSpevivo/fls-proficiency-test/blob/main/functions/index.js), but let's break down some specific design considerations.
 
 - i knew that what i essentially wanted was a small web app that could support rendering pages with regular old `GET` requests, and also handle `POST` requests for server side logic (in this case, submitting the user form, grading the test, and sending out email). this pointed me at Express, which is tailor made for creating the kinds of endpoints i'd need
 - there was data i wanted to be able to store & load statically. to wit, the list of countries for the country multiselect, the proficieny test questions, and the proficiency test answers. the solution in this case was to store the above data as `JSON`s, and read the files from Node.
