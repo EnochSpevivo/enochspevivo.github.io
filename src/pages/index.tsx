@@ -3,11 +3,15 @@ import { CSSTransition } from 'react-transition-group';
 import type { HeadFC } from 'gatsby';
 import 'animate.css';
 
+import useSiteStore from '../stores/UseSiteStore';
 import Landing from '../views/Landing';
 import Work from '../views/Work';
+import WorkSamples from '../views/WorkSamples';
 
 const IndexPage = () => {
-    const [currentView, setCurrentView] = useState('landing');
+    // TODO: type unknown?
+    // @ts-ignore
+    const currentView = useSiteStore((state) => state.currentView);
 
     return (
         <>
@@ -19,7 +23,7 @@ const IndexPage = () => {
                 in={currentView === 'landing'}
                 addEndListener={() => {}}
             >
-                <Landing currentView={currentView} setCurrentView={setCurrentView} />
+                <Landing />
             </CSSTransition>
 
             <CSSTransition
@@ -30,7 +34,18 @@ const IndexPage = () => {
                 in={currentView === 'work'}
                 addEndListener={() => {}}
             >
-                <Work currentView={currentView} />
+                <Work />
+            </CSSTransition>
+
+            <CSSTransition
+                classNames={{
+                    enterActive: 'animate__animated animate__fadeInRight',
+                    exitActive: 'animate__animated animate__fadeOutLeft',
+                }}
+                in={currentView === 'work'}
+                addEndListener={() => {}}
+            >
+                <WorkSamples />
             </CSSTransition>
         </>
     );

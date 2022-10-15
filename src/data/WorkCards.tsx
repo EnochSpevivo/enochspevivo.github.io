@@ -42,20 +42,22 @@ export default [
     {
         company: 'ReCharge Payments',
         title: 'Front End Developer (remote)',
-        stack: ['Flask (Python)', 'Jinja', 'Shopify API (JavaScript)'],
+        stack: ['Flask (Python)', 'Jinja', 'Vue.js', 'Shopify API (JavaScript)'],
         logo: rechargeLogo,
-        blurb: 'Ate ass and skated fast.',
+        blurb: 'Developed features for internal Python and JavaScript tools. Implemented custom features for Shopify integration.',
     } as WorkCardInfo,
     {
         company: 'Glo (formerly YogaGlo)',
         title: 'Front End Developer',
         stack: ['Ember.js', 'Node', 'Postgres', 'AWS (S3 & CloudFormation)'],
         logo: gloLogo,
+        blurb: `Implemented features and functionality in an Ember.js web application. Developed a Node.js based tool for internal content management.`,
     } as WorkCardInfo,
     {
         company: 'MakerSquare',
-        title: 'Web Development Instructor',
+        title: 'Lead Web Development Instructor',
         stack: ['React.js', 'Node.js', 'Firebase'],
         logo: makersquareLogo,
+        blurb: 'Led month long cohorts in the fundamentals of web development. Provided one-on-one support for web dev students. Developed Firebase lesson for curriculum.',
     } as WorkCardInfo,
 ];
