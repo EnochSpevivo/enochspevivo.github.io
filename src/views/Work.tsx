@@ -9,8 +9,6 @@ import Header from '../components/Header';
 import ViewWrapper from '../components/ViewWrapper';
 
 const Work = () => {
-    // @ts-ignore
-    const currentView = useSiteStore((state) => state.currentView);
     const workCardGrid = useRef(null);
     const [workCardGridHeight, setWorkCardGridHeight] = useState(0);
 
@@ -37,10 +35,7 @@ const Work = () => {
 
     return (
         <ViewWrapper viewName="work">
-            <Header
-                viewTitle={`where i've worked`}
-                subtitle={'click a card to see work samples.'}
-            />
+            <Header viewTitle={`where i've worked`} subtitle={'click a card to learn more.'} />
 
             <div
                 className="animate__animated animate__fadeInUp flex flex-wrap justify-center gap-1 pb-[35px]"

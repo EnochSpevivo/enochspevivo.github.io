@@ -13,15 +13,20 @@ interface Header {
 }
 
 const Header = ({ viewTitle, subtitle }: Header) => {
-    const setCurrentView = useSiteStore((state) => state.useSiteStore);
+    const setCurrentView = useSiteStore((state) => state.setCurrentView);
 
     return (
-        <div className="flex flex-col justify-between items-baseline py-[15px]">
+        <div className="font-montserrat flex flex-col justify-between items-baseline pt-[15px]">
             <div className="flex w-full justify-between">
                 <div className="flex flex-col gap-x-2 sm:flex-row">
                     <HeaderItem copy="who are you?" onClick={() => {}} />
 
                     <HeaderItem copy="work samples" onClick={() => setCurrentView('workSamples')} />
+
+                    <HeaderItem
+                        copy="where have you worked?"
+                        onClick={() => setCurrentView('work')}
+                    />
 
                     <HeaderItem copy="contact" onClick={() => {}} />
                 </div>
