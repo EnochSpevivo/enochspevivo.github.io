@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { navigate } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'; // @ts-ignore
 
@@ -19,14 +19,11 @@ const Header = ({ viewTitle, subtitle }: Header) => {
         <div className="font-montserrat flex flex-col justify-between items-baseline pt-[15px]">
             <div className="flex w-full justify-between">
                 <div className="flex flex-col gap-x-2 sm:flex-row">
-                    <HeaderItem copy="who are you?" onClick={() => {}} />
+                    <HeaderItem copy="about" onClick={() => {}} />
 
-                    <HeaderItem copy="work samples" onClick={() => setCurrentView('workSamples')} />
+                    <HeaderItem copy="work samples" onClick={() => navigate('/samples')} />
 
-                    <HeaderItem
-                        copy="where have you worked?"
-                        onClick={() => setCurrentView('work')}
-                    />
+                    <HeaderItem copy="work places" onClick={() => navigate('/work')} />
 
                     <HeaderItem copy="contact" onClick={() => {}} />
                 </div>

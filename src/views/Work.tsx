@@ -14,7 +14,7 @@ const Work = () => {
 
     const handleCardClick = () => {
         // @ts-ignore
-        setWorkCardGridHeight(workCardGrid.current.offsetHeight);
+        console.log('fart');
     };
 
     const renderWorkCards = (workCardInfos: WorkCardInfo[]) => {
@@ -35,7 +35,7 @@ const Work = () => {
 
     return (
         <ViewWrapper viewName="work">
-            <Header viewTitle={`where i've worked`} subtitle={'click a card to learn more.'} />
+            <Header viewTitle={`work places`} subtitle={'click a card to learn more.'} />
 
             <div
                 className="animate__animated animate__fadeInUp flex flex-wrap justify-center gap-1 pb-[35px]"

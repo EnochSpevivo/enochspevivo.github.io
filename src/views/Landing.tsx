@@ -41,7 +41,7 @@ const Landing = () => {
                     style={{ animationDelay: '0.6s' }}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
-                    <span className="ml-2">who are you?</span>
+                    <span className="ml-2">about</span>
                 </div>
 
                 <div
@@ -50,7 +50,7 @@ const Landing = () => {
                     onClick={() => navigate('/work')}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
-                    <span className="ml-2">where have you worked?</span>
+                    <span className="ml-2">work places</span>
                 </div>
 
                 <div
@@ -59,7 +59,7 @@ const Landing = () => {
                     onClick={() => navigate('/samples')}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
-                    <span className="ml-2">can i see work samples?</span>
+                    <span className="ml-2">work samples</span>
                 </div>
 
                 <div
@@ -67,7 +67,7 @@ const Landing = () => {
                     style={{ animationDelay: '1.2s' }}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
-                    <span className="ml-2">how can i contact you?</span>
+                    <span className="ml-2">contact</span>
                 </div>
 
                 <div
