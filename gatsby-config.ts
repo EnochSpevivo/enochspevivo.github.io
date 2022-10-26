@@ -1,6 +1,7 @@
 import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
+    pathPrefix: '/enochspevivo.github.io',
     siteMetadata: {
         title: `enochspevivo.github.io`,
         siteUrl: `https://www.yourdomain.tld`,
