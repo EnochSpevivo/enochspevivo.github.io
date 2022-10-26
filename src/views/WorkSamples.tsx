@@ -234,7 +234,7 @@ const WorkSamples = () => {
                     hefty pay wall.
                 </p>
 
-                <p className="text-[18px]">here are two options for you:</p>
+                <p className="text-[18px]">here are three options for you:</p>
 
                 <ul className="list-disc text-[18px]">
                     <li>

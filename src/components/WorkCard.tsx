@@ -13,7 +13,6 @@ interface WorkCard {
 }
 
 const WorkCard = ({ logo, company, title, stack, blurb, handleCardClick }: WorkCard) => {
-    const [isSelectedWorkCard, setIsSelectedWorkCard] = useState(false);
     const renderStack = (stack: string[]) => {
         return <span>{`${stack.slice(0, -1).join(', ')}, ${stack.slice(-1)}`}</span>;
     };
@@ -23,10 +22,8 @@ const WorkCard = ({ logo, company, title, stack, blurb, handleCardClick }: WorkC
         <div
             className="flex flex-col basis-[100%] p-[20px] bg-white/10 cursor-pointer gap-y-2 text-[15px] transition-all rounded-md md:basis-[49.6%] lg:p-[30px] text-[16px]"
             onClick={() => {
-                setIsSelectedWorkCard(true);
                 handleCardClick();
             }}
-            style={isSelectedWorkCard ? { flexBasis: '100%' } : {}}
         >
             <div className="flex justify-left items-start gap-x-4">
                 <img className="w-[45px] md:min-w-[45px] lg:min-w-[60px]" src={logo} />

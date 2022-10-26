@@ -7,6 +7,8 @@ import useSiteStore from '../stores/UseSiteStore';
 import Landing from '../views/Landing';
 import Work from '../views/Work';
 import WorkSamples from '../views/WorkSamples';
+import About from '../views/About';
+import Contact from '../views/Contact';
 
 /*
     apparently, for client only routes to work in gatsby, the 'index' file needs to be named '[...]'. i feel like the docs made this about as clear as mud, but, there you go. a gift for future me. love, past me.
@@ -27,6 +29,10 @@ const IndexPage = () => {
             <Work path="/work" />
 
             <WorkSamples path="/samples" />
+
+            <About path="/about" />
+
+            <Contact path="/contact" />
         </Router>
     );
 };

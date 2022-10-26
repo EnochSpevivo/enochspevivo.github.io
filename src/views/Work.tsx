@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
-import useSiteStore from '../stores/UseSiteStore';
 import WorkCardInfo from '../interfaces/WorkCardInfo';
 import workCardInfos from '../data/WorkCards';
 
@@ -10,7 +9,6 @@ import ViewWrapper from '../components/ViewWrapper';
 
 const Work = () => {
     const workCardGrid = useRef(null);
-    const [workCardGridHeight, setWorkCardGridHeight] = useState(0);
 
     const handleCardClick = () => {
         // @ts-ignore
@@ -39,7 +37,6 @@ const Work = () => {
 
             <div
                 className="animate__animated animate__fadeInUp flex flex-wrap justify-center gap-1 pb-[35px]"
-                style={workCardGridHeight ? { maxHeight: workCardGridHeight } : {}}
                 ref={workCardGrid}
             >
                 {renderWorkCards(workCardInfos)}

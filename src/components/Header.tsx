@@ -13,19 +13,17 @@ interface Header {
 }
 
 const Header = ({ viewTitle, subtitle }: Header) => {
-    const setCurrentView = useSiteStore((state) => state.setCurrentView);
-
     return (
-        <div className="font-montserrat flex flex-col justify-between items-baseline pt-[15px]">
+        <div className="font-montserrat flex flex-col justify-between items-baseline pt-[15px] mb-4">
             <div className="flex w-full justify-between">
                 <div className="flex flex-col gap-x-2 sm:flex-row">
-                    <HeaderItem copy="about" onClick={() => {}} />
+                    <HeaderItem copy="about" onClick={() => navigate('/about')} />
 
                     <HeaderItem copy="work samples" onClick={() => navigate('/samples')} />
 
                     <HeaderItem copy="work places" onClick={() => navigate('/work')} />
 
-                    <HeaderItem copy="contact" onClick={() => {}} />
+                    <HeaderItem copy="contact" onClick={() => navigate('/contact')} />
                 </div>
 
                 <div className="flex gap-x-4 relative top-[4px] sm:justify-end">
@@ -53,7 +51,7 @@ const Header = ({ viewTitle, subtitle }: Header) => {
                     {viewTitle}
                 </h2>
 
-                <h3 className="relative bottom-[6px] animate__animated animate__fadeInDown text-[12px] font-extralight sm:bottom-[0px] md:text-[16px] lg:text-[22px]">
+                <h3 className="relative bottom-[10px] animate__animated animate__fadeInDown text-[12px] font-extralight md:text-[16px] lg:text-[18px]">
                     {subtitle}
                 </h3>
             </div>
