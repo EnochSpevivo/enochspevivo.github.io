@@ -24,13 +24,16 @@ const Contact = () => {
             message,
         };
 
-        fetch('https://enochspevivo-nodemailer-server-krarqot7mq-uc.a.run.app/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
+        fetch(
+            'https://us-central1-enochspevivo-portfolio.cloudfunctions.net/nodemailerApi/send-email',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }
+        )
             .then((response) => response.json())
             .then((data) => {
                 console.log('Success:', data);
@@ -62,7 +65,7 @@ const Contact = () => {
                         className="animate__animated animate__fadeInUp flex flex-col gap-y-1"
                         style={{ animationDelay: '0.2s' }}
                     >
-                        <label for="email" className="block text-sm font-medium">
+                        <label htmlFor="email" className="block text-sm font-medium">
                             your email address
                         </label>
 
@@ -80,7 +83,7 @@ const Contact = () => {
                         className="animate__animated animate__fadeInUp flex flex-col gap-y-1"
                         style={{ animationDelay: '0.4s' }}
                     >
-                        <label for="subject" className="block text-sm font-medium">
+                        <label htmlFor="subject" className="block text-sm font-medium">
                             subject header
                         </label>
 
@@ -98,7 +101,7 @@ const Contact = () => {
                         className="animate__animated animate__fadeInUp flex flex-col gap-y-1"
                         style={{ animationDelay: '0.6s' }}
                     >
-                        <label for="message" className="block text-sm font-medium">
+                        <label htmlFor="message" className="block text-sm font-medium">
                             your message
                         </label>
 
@@ -129,10 +132,7 @@ const Contact = () => {
             );
         } else if (isSentSuccessfully) {
             return (
-                <div
-                    className="animate__animated animate__fadeInUp flex flex-col gap-y-2 justify-center items-center md:gap-y-4"
-                    style={{ animationDelay: '0.2s' }}
-                >
+                <div className="animate__animated animate__fadeInDown flex flex-col gap-y-2 justify-center items-center md:gap-y-4">
                     <FontAwesomeIcon
                         icon={faCircleCheck}
                         className="text-[48px] text-[#66ff33] md:text-[82px]"
@@ -145,10 +145,7 @@ const Contact = () => {
             );
         } else if (isSentSuccessfully) {
             return (
-                <div
-                    className="flex flex-col gap-y-2 justify-center items-center md:gap-y-4"
-                    style={{ animationDelay: '0.2s' }}
-                >
+                <div className="animate__animated animate__fadeInDown flex flex-col gap-y-2 justify-center items-center md:gap-y-4">
                     <FontAwesomeIcon
                         icon={faCircleXmark}
                         className="text-[48px] text-[#ff3300] md:text-[82px]"
