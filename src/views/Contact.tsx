@@ -168,7 +168,7 @@ const Contact = () => {
             <Header viewTitle={'contact'} subtitle={`reach out some time, won't you?`} />
 
             <div className="flex flex-col relative">
-                <div className="flex flex-col gap-y-4">
+                <div className="flex flex-col gap-y-4 mb-[35px]">
                     {renderContactForm()}
 
                     <span
@@ -177,10 +177,10 @@ const Contact = () => {
                     >
                         you can always email me directly at{' '}
                         <a
-                            href="mailto:enochspevivo@gmail.com"
+                            href="mailto:gabriel@enochspevivo.com"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >
-                            enochspevivo@gmail.com
+                            gabriel@enochspevivo.com
                         </a>
                     </span>
 
