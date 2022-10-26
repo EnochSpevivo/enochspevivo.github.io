@@ -58,8 +58,11 @@ const Contact = () => {
                         <ReactLoading type={'spin'} height={75} width={75} />
                     </div>
 
-                    <div className="flex flex-col gap-y-1" style={{ animationDelay: '0.2s' }}>
-                        <label for="email" class="block text-sm font-medium">
+                    <div
+                        className="animate__animated animate__fadeInUp flex flex-col gap-y-1"
+                        style={{ animationDelay: '0.2s' }}
+                    >
+                        <label for="email" className="block text-sm font-medium">
                             your email address
                         </label>
 
@@ -73,8 +76,11 @@ const Contact = () => {
                         />
                     </div>
 
-                    <div className="flex flex-col gap-y-1" style={{ animationDelay: '0.4s' }}>
-                        <label for="subject" class="block text-sm font-medium">
+                    <div
+                        className="animate__animated animate__fadeInUp flex flex-col gap-y-1"
+                        style={{ animationDelay: '0.4s' }}
+                    >
+                        <label for="subject" className="block text-sm font-medium">
                             subject header
                         </label>
 
@@ -88,8 +94,11 @@ const Contact = () => {
                         />
                     </div>
 
-                    <div className="flex flex-col gap-y-1" style={{ animationDelay: '0.6s' }}>
-                        <label for="message" class="block text-sm font-medium">
+                    <div
+                        className="animate__animated animate__fadeInUp flex flex-col gap-y-1"
+                        style={{ animationDelay: '0.6s' }}
+                    >
+                        <label for="message" className="block text-sm font-medium">
                             your message
                         </label>
 
@@ -103,14 +112,14 @@ const Contact = () => {
                             onChange={(e) => setMessage(e.target.value)}
                             id="message"
                             rows="4"
-                            class="block min-h-[175px] p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 md:min-h-[300px]"
+                            className="block min-h-[175px] p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 md:min-h-[300px]"
                             placeholder="I think perhaps the most important problem is that we are trying to understand the fundamental workings of the universe via a language devised for telling one another when the best fruit is..."
                         ></textarea>
                     </div>
 
                     <button
                         type="submit"
-                        className="bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                        className="animate__animated animate__fadeInUp bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         onClick={handleSendEmail}
                         style={{ animationDelay: '0.8s' }}
                     >
@@ -121,7 +130,7 @@ const Contact = () => {
         } else if (isSentSuccessfully) {
             return (
                 <div
-                    className="flex flex-col gap-y-2 justify-center items-center md:gap-y-4"
+                    className="animate__animated animate__fadeInUp flex flex-col gap-y-2 justify-center items-center md:gap-y-4"
                     style={{ animationDelay: '0.2s' }}
                 >
                     <FontAwesomeIcon
@@ -162,7 +171,10 @@ const Contact = () => {
                 <div className="flex flex-col gap-y-4">
                     {renderContactForm()}
 
-                    <span className="text-[12px] md:text-[16px]" style={{ animationDelay: '1.0s' }}>
+                    <span
+                        className="animate__animated animate__fadeInUp text-[12px] md:text-[16px]"
+                        style={{ animationDelay: '1.0s' }}
+                    >
                         you can always email me directly at{' '}
                         <a
                             href="mailto:enochspevivo@gmail.com"
@@ -172,7 +184,10 @@ const Contact = () => {
                         </a>
                     </span>
 
-                    <span className="text-[12px] md:text-[16px]" style={{ animationDelay: '1.2s' }}>
+                    <span
+                        className="animate__animated animate__fadeInUp text-[12px] md:text-[16px]"
+                        style={{ animationDelay: '1.2s' }}
+                    >
                         you can also shoot me a message on{' '}
                         <a
                             href="https://www.linkedin.com/in/gabriel-gonzalvez-927b51ab/"
@@ -185,7 +200,7 @@ const Contact = () => {
                     </span>
 
                     <span
-                        className="text-[12px] mb-6 md:text-[16px]"
+                        className="animate__animated animate__fadeInUp text-[12px] mb-6 md:text-[16px]"
                         style={{ animationDelay: '1.4s' }}
                     >
                         if you're feeling truly wild, you can call me on my personal line at{' '}

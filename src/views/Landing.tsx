@@ -65,6 +65,7 @@ const Landing = () => {
                 <div
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight text-[#00e6e6] cursor-pointer transition-all w-fit hover:text-[#93e5e5] md:text-[24px] lg:text-[28px]"
                     style={{ animationDelay: '1.2s' }}
+                    onClick={() => navigate('/contact')}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
                     <span className="ml-2">contact</span>
