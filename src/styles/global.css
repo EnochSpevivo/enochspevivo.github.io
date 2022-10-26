@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #0D1321;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+}
