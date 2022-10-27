@@ -29,7 +29,7 @@ const About = () => {
                 >
                     hey! i'm gabriel. thanks for clicking. i'm a web developer, and i've been doing
                     this professionally (herein defined as "companies willingly pay me to make stuff
-                    on the web for them") for 8 years. i also like to type entirely in low caps in
+                    on the web for them") for 10 years. i also like to type entirely in low caps in
                     order to affect a stylistically "cool" vibe. that's not important to the work i
                     do, but it is true.
                 </p>

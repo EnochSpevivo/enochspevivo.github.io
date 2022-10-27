@@ -32,7 +32,7 @@ const Landing = () => {
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-4 md:text-[24px] lg:text-[28px]"
                     style={{ animationDelay: '0.4s' }}
                 >
-                    folks have been paying me to develop web applications for 8 years now.
+                    folks have been paying me to develop web applications for 10 years now.
                 </h2>
 
                 <div
