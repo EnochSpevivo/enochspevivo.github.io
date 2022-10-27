@@ -17,7 +17,7 @@ const Landing = () => {
             } min-w-[100vw] hero flex flex-col items-center justify-center h-screen font-montserrat text-[#F0EBD8]`}
         >
             <div className="flex flex-col w-3/4 lg:w-2/3">
-                <h1 className="animate__animated animate__fadeInDown text-[38px] font-light md:text-[52px] lg:text-[120px]">
+                <h1 className="animate__animated animate__fadeInDown text-[38px] font-light md:text-[52px] lg:text-[98px] xl:text-[120px]">
                     hi! i'm gabriel.
                 </h1>
 
