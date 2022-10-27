@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { navigate } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'; // @ts-ignore
 
 import HeaderItem from './HeaderItem';
@@ -38,6 +39,16 @@ const Header = ({ viewTitle, subtitle }: Header) => {
                     >
                         <FontAwesomeIcon
                             icon={faLinkedinIn}
+                            className="text-[24px] transition-all cursor-pointer hover:text-[#00e6e6] md:text-[28px]"
+                        />
+                    </a>
+
+                    <a
+                        href="https://docs.google.com/document/d/18aB1gV9nbEsj36O1ULnJs-pF1VNVbuvNH7Hq1EWfCrM/edit?usp=sharing"
+                        target="_blank"
+                    >
+                        <FontAwesomeIcon
+                            icon={faFileLines}
                             className="text-[24px] transition-all cursor-pointer hover:text-[#00e6e6] md:text-[28px]"
                         />
                     </a>
