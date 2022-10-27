@@ -93,7 +93,7 @@ const Landing = () => {
                     </a>
 
                     <a
-                        href="https://docs.google.com/document/d/18aB1gV9nbEsj36O1ULnJs-pF1VNVbuvNH7Hq1EWfCrM/edit?usp=sharing"
+                        href="https://docs.google.com/document/d/1QgF8Tde5vug-2m2TDLm1pg46tf67wz8GKH5LfvF9HaY/edit?usp=sharing"
                         target="_blank"
                     >
                         <FontAwesomeIcon
