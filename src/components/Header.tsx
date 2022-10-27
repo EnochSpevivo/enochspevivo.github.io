@@ -18,9 +18,9 @@ const Header = ({ viewTitle, subtitle }: Header) => {
                 <div className="flex flex-col gap-x-2 sm:flex-row">
                     <HeaderItem copy="about" onClick={() => navigate('/about')} />
 
-                    <HeaderItem copy="work samples" onClick={() => navigate('/samples')} />
-
                     <HeaderItem copy="work places" onClick={() => navigate('/work')} />
+
+                    <HeaderItem copy="work samples" onClick={() => navigate('/samples')} />
 
                     <HeaderItem copy="contact" onClick={() => navigate('/contact')} />
                 </div>

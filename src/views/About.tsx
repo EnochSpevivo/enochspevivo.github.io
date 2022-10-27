@@ -11,7 +11,7 @@ const About = () => {
         <ViewWrapper viewName="work">
             <Header viewTitle={`about`} subtitle={'who is this guy, anyway?'} />
 
-            <div className="mb-[35px] flex flex-col items-center md:block">
+            <div className="flex flex-col items-center md:block">
                 <div
                     className="animate__animated animate__fadeInUp flex flex-col gap-y-2 float-left max-w-[240px] text-center mb-2 md:mb-0 md:mr-6"
                     style={{ animationDelay: '0.2s' }}
@@ -161,7 +161,7 @@ const About = () => {
                 </p>
 
                 <p
-                    className="animate__animated animate__fadeInUp"
+                    className="animate__animated animate__fadeInUp mb-[35px]"
                     style={{ animationDelay: '1.6s' }}
                 >
                     stay frosty, keep your towel close by, and don't forget to enjoy the sauce.
