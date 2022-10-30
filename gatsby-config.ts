@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                icon: 'src/images/icon.png',
+                icon: 'src/assets/icon.png',
             },
         },
         'gatsby-plugin-mdx',
@@ -26,7 +26,7 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'images',
-                path: './src/images/',
+                path: './src/assets/',
             },
             __key: 'images',
         },
