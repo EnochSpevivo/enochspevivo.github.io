@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
-// import stravaSample from '../images/work-samples/glo/strava-sample.png';
-import jasonSample from '../images/work-samples/glo/jason-sample.png';
-import programsSample from '../images/work-samples/glo/programs-sample.png';
-import verysSample1 from '../images/work-samples/verys/sample-1.png';
-import verysSample2 from '../images/work-samples/verys/sample-2.png';
-// import campaignSample from '../images/work-samples/linkedin/campaign-sample.png';
-// import tagTestingSample from '../images/work-samples/linkedin/tag-testing-sample.png';
-import flsSample from '../images/work-samples/fls/fls-sample.png';
-import proficiencySample from '../images/work-samples/fls/proficiency-sample.png';
-import wordForWordSample1 from '../images/work-samples/word-for-word/sample-1.png';
-import wordForWordSample2 from '../images/work-samples/word-for-word/sample-2.png';
-import wordForWordVideoSample1 from '../images/work-samples/word-for-word/video-sample-1.mp4';
-import verysVideoSample1 from '../images/work-samples/verys/sketching.mp4';
-import verysVideoSample2 from '../images/work-samples/verys/page-swapping.mp4';
+import jasonSample from '../assets/work-samples/glo/jason-sample.png';
+import programsSample from '../assets/work-samples/glo/programs-sample.png';
+import verysSample1 from '../assets/work-samples/verys/sample-1.png';
+import verysSample2 from '../assets/work-samples/verys/sample-2.png';
+import flsSample from '../assets/work-samples/fls/fls-sample.png';
+import proficiencySample from '../assets/work-samples/fls/proficiency-sample.png';
+import wordForWordSample1 from '../assets/work-samples/word-for-word/sample-1.png';
+import wordForWordSample2 from '../assets/work-samples/word-for-word/sample-2.png';
+import wordForWordVideoSample1 from '../assets/work-samples/word-for-word/video-sample-1.mp4';
+import verysVideoSample1 from '../assets/work-samples/verys/sketching.mp4';
+import verysVideoSample2 from '../assets/work-samples/verys/page-swapping.mp4';
 
 import Header from '../components/Header';
 import ViewWrapper from '../components/ViewWrapper';

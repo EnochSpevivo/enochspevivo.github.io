@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import ViewWrapper from '../components/ViewWrapper';
 
-import aTrueProfessionalImg from '../images/about/a-true-professional.jpg';
-import slightlyLessProfessionalImg from '../images/about/slightly-less-professional.jpg';
+import aTrueProfessionalImg from '../assets/about/a-true-professional.jpg';
+import slightlyLessProfessionalImg from '../assets/about/slightly-less-professional.jpg';
 
 const About = () => {
     return (

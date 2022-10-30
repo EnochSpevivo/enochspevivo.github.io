@@ -6,7 +6,7 @@ import {
     rechargeLogo,
     gloLogo,
     flsLogo,
-} from '../images/work-logos/work-logos';
+} from '../assets/work-logos/work-logos';
 
 import WorkCardInfo from '../interfaces/WorkCardInfo';
 
