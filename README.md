@@ -8,7 +8,7 @@ if for some curious — yet exciting — reason you are interested in cloning th
 
 and if you're here and thinking to yourself, "i _am_ a hoopy frood, and i know a hoopy frood when i see one", then i encourage you to reach out:
 
--   send me an [email](mailto:enochspevivo@gmail.com) (enochspevivo@gmail.com)
+-   send me an [email](mailto:gabriel@enochspevivo.com) (gabriel@enochspevivo.com)
 -   send me a message on [LinkedIn](https://www.linkedin.com/in/gabriel-gonzalvez-927b51ab/)
 
 otherwise, keep your towel close, and have a nice day!
