@@ -116,7 +116,7 @@ const Contact = () => {
                             id="message"
                             rows="4"
                             className="block min-h-[175px] p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 md:min-h-[300px]"
-                            placeholder="I think perhaps the most important problem is that we are trying to understand the fundamental workings of the universe via a language devised for telling one another when the best fruit is..."
+                            placeholder="i think perhaps the most important problem is that we are trying to understand the fundamental workings of the universe via a language devised for telling one another where the best fruit is..."
                         ></textarea>
                     </div>
 
