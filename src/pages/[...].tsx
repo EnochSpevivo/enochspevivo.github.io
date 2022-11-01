@@ -39,4 +39,14 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => (
+    <>
+        <title>gabriel | enochspevivo.com</title>
+        <meta
+            name="description"
+            content="portfolio site for gabriel, a senior web developer with 10 years professional experience"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://enochspevivo.com/" />
+    </>
+);

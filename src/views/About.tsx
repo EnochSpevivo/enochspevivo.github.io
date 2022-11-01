@@ -84,8 +84,8 @@ const About = () => {
                     >
                         backbone
                     </a>{' '}
-                    (remember backbone? man, when did that become old? when did <em>i</em> become
-                    old?). hell, i even go{' '}
+                    (remember backbone? man, when did that get old? when did <em>i</em> get old?).
+                    hell, i even go{' '}
                     <a
                         href="http://vanilla-js.com/"
                         target="_blank"
