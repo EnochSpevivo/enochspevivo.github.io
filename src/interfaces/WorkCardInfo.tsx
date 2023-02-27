@@ -2,8 +2,9 @@ interface WorkCardInfo {
     company: string;
     title: string;
     logo: string;
-    blurb: string;
+    duration: string;
     stack: string[];
+    details: string[];
 }
 
 export default WorkCardInfo;

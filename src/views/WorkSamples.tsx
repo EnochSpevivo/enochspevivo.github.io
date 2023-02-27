@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
 
 import jasonSample from '../assets/work-samples/glo/jason-sample.png';
 import programsSample from '../assets/work-samples/glo/programs-sample.png';
@@ -15,6 +14,7 @@ import verysVideoSample2 from '../assets/work-samples/verys/page-swapping.mp4';
 
 import Header from '../components/Header';
 import ViewWrapper from '../components/ViewWrapper';
+import ModalWrapper from '../components/ModalWrapper';
 
 const WorkSamples = () => {
     const [isWordForWordModalOpen, setIsWordForWordModalOpen] = useState(false);
@@ -148,14 +148,10 @@ const WorkSamples = () => {
                 </div>
             </ViewWrapper>
 
-            <Modal
+            <ModalWrapper
                 isOpen={isWordForWordModalOpen}
                 onRequestClose={() => setIsWordForWordModalOpen(false)}
-                overlayClassName="flex items-center justify-center fixed inset-0 bg-white/40"
-                className="max-w-[90vw] flex flex-col gap-y-4 h-auto rounded-lg bg-[#0D1321] p-[35px] text-white font-extralight h-fit md:max-w-[550px]"
             >
-                {/* <h2 className="text-[32px] leading-10">"difficult to demo" projects</h2> */}
-
                 <p className="text-[18px]">
                     word for word was a personal project i worked on with my very good friend, and
                     co-creator,{' '}
@@ -200,16 +196,12 @@ const WorkSamples = () => {
                         and try word for word yourself. it's free!
                     </li>
                 </ul>
-            </Modal>
+            </ModalWrapper>
 
-            <Modal
+            <ModalWrapper
                 isOpen={isVerysModalOpen}
                 onRequestClose={() => setIsVerysModalOpen(false)}
-                overlayClassName="flex items-center justify-center fixed inset-0 bg-white/40"
-                className="max-w-[90vw] flex flex-col gap-y-4 h-auto rounded-lg bg-[#0D1321] p-[35px] text-white font-extralight h-fit md:max-w-[550px]"
             >
-                {/* <h2 className="text-[32px] leading-10">"difficult to demo" projects</h2> */}
-
                 <p className="text-[18px]">
                     i worked on the{' '}
                     <a
@@ -267,7 +259,7 @@ const WorkSamples = () => {
                         my page swapping feature
                     </li>
                 </ul>
-            </Modal>
+            </ModalWrapper>
         </>
     );
 };

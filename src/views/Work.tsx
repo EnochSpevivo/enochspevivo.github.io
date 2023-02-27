@@ -10,11 +10,6 @@ import ViewWrapper from '../components/ViewWrapper';
 const Work = () => {
     const workCardGrid = useRef(null);
 
-    const handleCardClick = () => {
-        // @ts-ignore
-        console.log('fart');
-    };
-
     const renderWorkCards = (workCardInfos: WorkCardInfo[]) => {
         return workCardInfos.map((workCardInfo: WorkCardInfo) => {
             return (
@@ -24,8 +19,8 @@ const Work = () => {
                     title={workCardInfo.title}
                     stack={workCardInfo.stack}
                     company={workCardInfo.company}
-                    blurb={workCardInfo.blurb}
-                    handleCardClick={handleCardClick}
+                    details={workCardInfo.details}
+                    duration={workCardInfo.duration}
                 />
             );
         });
@@ -33,7 +28,7 @@ const Work = () => {
 
     return (
         <ViewWrapper viewName="work">
-            <Header viewTitle={`work places`} subtitle={''} />
+            <Header viewTitle={`work places`} subtitle={'click a card for more details'} />
 
             <div
                 className="animate__animated animate__fadeInUp flex flex-wrap justify-center gap-1 pb-[35px]"
