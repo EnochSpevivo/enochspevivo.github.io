@@ -3,6 +3,7 @@ import { navigate } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'; // @ts-ignore
+import { faHome } from '@fortawesome/free-solid-svg-icons'; // @ts-ignore
 
 import HeaderItem from './HeaderItem';
 
@@ -16,6 +17,8 @@ const Header = ({ viewTitle, subtitle }: Header) => {
         <div className="font-montserrat flex flex-col justify-between items-baseline pt-[15px] md:mb-4">
             <div className="flex w-full justify-between">
                 <div className="flex flex-col gap-x-2 sm:flex-row">
+                    <HeaderItem icon={faHome} onClick={() => navigate('/')} />
+
                     <HeaderItem copy="about" onClick={() => navigate('/about')} />
 
                     <HeaderItem copy="work places" onClick={() => navigate('/work')} />
