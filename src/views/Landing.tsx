@@ -22,7 +22,7 @@ const Landing = () => {
                 </h1>
 
                 <h2
-                    className="animate__animated animate__fadeInDown text-[18px] font-extralight md:text-[24px] lg:text-[28px]"
+                    className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-[8px] md:text-[24px] md:mb-[0px] lg:text-[28px]"
                     style={{ animationDelay: '0.2s' }}
                 >
                     10 year veteran of web development, based in seattle.
@@ -41,7 +41,7 @@ const Landing = () => {
                         netlify
                     </a>
                     .
-                    <div className="text-[14px]">
+                    <div className="text-[12px]">
                         speaking of, this site is built with{' '}
                         <a
                             href="https://www.gatsbyjs.com/"
