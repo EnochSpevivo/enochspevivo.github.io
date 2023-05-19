@@ -13,8 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
-    "deploy": "gatsby build && cp public/[...]/index.html public/index.html && firebase deploy"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fontsource/montserrat": "^4.5.13",

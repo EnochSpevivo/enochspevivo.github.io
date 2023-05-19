@@ -1,4 +1,7 @@
 # gabriel (enochspevivo) web dev portfolio
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/596b3ffb-48aa-468b-9a6a-921472d17507/deploy-status)](https://app.netlify.com/sites/enochspevivo/deploys)
+
 ## [https://enochspevivo.com/](https://enochspevivo.com/)
 
 hey there! if you came here from my portfolio site, i want you to know, you are a very [hoopy frood](https://hitchhikers.fandom.com/wiki/Frood) who knows exactly where their towel is at.
