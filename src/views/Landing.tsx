@@ -25,14 +25,33 @@ const Landing = () => {
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight md:text-[24px] lg:text-[28px]"
                     style={{ animationDelay: '0.2s' }}
                 >
-                    i'm a web developer based in seattle.
+                    10 year veteran of web development, based in seattle.
                 </h2>
 
                 <h2
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-4 md:text-[24px] lg:text-[28px]"
                     style={{ animationDelay: '0.4s' }}
                 >
-                    folks have been paying me to develop web applications for 10 years now.
+                    currently a senior customer success engineer with{' '}
+                    <a
+                        className="text-[#00e6e6] text-[#00e6e6] transition-all hover:text-[#93e5e5]"
+                        href="https://www.netlify.com/"
+                        target="_blank"
+                    >
+                        netlify
+                    </a>
+                    .
+                    <div className="text-[14px]">
+                        speaking of, this site is built with{' '}
+                        <a
+                            href="https://www.gatsbyjs.com/"
+                            target="_blank"
+                            className="text-[#00e6e6] transition-all hover:text-[#93e5e5]"
+                        >
+                            gatsby
+                        </a>
+                        , and deployed on netlify. check 'em out!
+                    </div>
                 </h2>
 
                 <div

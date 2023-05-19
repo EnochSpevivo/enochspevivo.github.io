@@ -7,6 +7,7 @@ import makersquareLogo from './makersquare.png'; // @ts-ignore
 import rechargeLogo from './recharge.png'; // @ts-ignore
 import gloLogo from './glo.jpg'; // @ts-ignore
 import flsLogo from './fls.png'; 
+import netlifyLogo from './netlify.png';
 
 export {
   nbcLogo,
@@ -16,6 +17,7 @@ export {
   rechargeLogo,
   gloLogo,
   flsLogo,
+  netlifyLogo,
 };
 
-export default [linkedinLogo, verysLogo, nbcLogo, flsLogo, rechargeLogo, gloLogo, makersquareLogo];
+export default [linkedinLogo, verysLogo, nbcLogo, flsLogo, rechargeLogo, gloLogo, makersquareLogo, netlifyLogo];

@@ -6,17 +6,26 @@ import {
     rechargeLogo,
     gloLogo,
     flsLogo,
+    netlifyLogo,
 } from '../assets/work-logos/work-logos';
 
 import WorkCardInfo from '../interfaces/WorkCardInfo';
 
 export default [
     {
+        company: 'Netlify',
+        title: 'Senior Customer Success Engineer (Remote)',
+        stack: ['React', 'Gatsby', 'Netlify'],
+        logo: netlifyLogo,
+        duration: '06/2023 - Present',
+        details: [`Just started! Let's see what the future holds.`],
+    } as WorkCardInfo,
+    {
         company: 'LinkedIn',
         title: 'Senior Web Developer (Remote)',
         stack: ['Ember.js', 'Tealium IQ'],
         logo: linkedinLogo,
-        duration: '12/2021 - Present',
+        duration: '12/2021 - 06/2023',
         details: [
             'Implemented & deployed custom marketing & analytics tags & pixels within Tealium IQ',
             'Worked on a team developing features and tooling for internal marketing web app using Ember.js',
