@@ -106,9 +106,7 @@ const Contact = () => {
                         </label>
 
                         <div className="text-[8px] mt-[-4px] md:text-[10px]">
-                            don't try any funny business. this contact form proxies to a cloud
-                            server. your messages are sanitized, my credentials are hidden, and i
-                            have spam filtering in place.
+                            keep it clean, you.
                         </div>
 
                         <textarea
