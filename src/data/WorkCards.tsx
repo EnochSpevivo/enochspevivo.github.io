@@ -18,7 +18,10 @@ export default [
         stack: ['React', 'Gatsby', 'Netlify'],
         logo: netlifyLogo,
         duration: '06/2023 - Present',
-        details: [`Just started! Let's see what the future holds.`],
+        details: [
+            'Led engineering support calls with industry accounts regarding best practices for Gatsby & Netlify applications',
+            'Developed web applications using React, Gatsby, and Netlify',
+        ],
     } as WorkCardInfo,
     {
         company: 'LinkedIn',
