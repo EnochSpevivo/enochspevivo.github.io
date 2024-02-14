@@ -25,8 +25,16 @@ const Landing = () => {
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-[8px] md:text-[24px] md:mb-[0px] lg:text-[28px]"
                     style={{ animationDelay: '0.2s' }}
                 >
-                    10 year veteran of web development, based in seattle.
+                    10 year veteran of web development.
                 </h2>
+
+                <h2
+                    className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-[8px] md:text-[24px] md:mb-[0px] lg:text-[28px]"
+                    style={{ animationDelay: '0.2s' }}
+                >
+                    front end, back end, web apps, APIs, and beyond.
+                </h2>
+
 
                 <h2
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-4 md:text-[24px] lg:text-[28px]"

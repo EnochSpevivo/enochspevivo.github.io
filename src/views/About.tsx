@@ -113,7 +113,7 @@ const About = () => {
                     style={{ animationDelay: '1.2s' }}
                 >
                     i've been working full time remote since march of 2019. i have a wonderful home
-                    office in seattle, washington. being able to set up my own work space has done
+                    office, complete with a stylish reclaimed wood corner desk. being able to set up my own work space has done
                     wonders for my mental health, but, more pertinently, it's made me <em>very</em>{' '}
                     productive. my good friend{' '}
                     <a
