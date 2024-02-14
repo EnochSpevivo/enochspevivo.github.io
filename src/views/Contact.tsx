@@ -185,7 +185,7 @@ const Contact = () => {
                     >
                         you can also shoot me a message on{' '}
                         <a
-                            href="https://www.linkedin.com/in/gabriel-gonzalvez-927b51ab/"
+                            href="https://www.linkedin.com/in/gabriel-g-927b51ab/"
                             target="_blank"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >

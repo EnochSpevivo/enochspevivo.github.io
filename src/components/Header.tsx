@@ -37,7 +37,7 @@ const Header = ({ viewTitle, subtitle }: Header) => {
                     </a>
 
                     <a
-                        href="https://www.linkedin.com/in/gabriel-gonzalvez-927b51ab/"
+                        href="https://www.linkedin.com/in/gabriel-g-927b51ab/"
                         target="_blank"
                     >
                         <FontAwesomeIcon

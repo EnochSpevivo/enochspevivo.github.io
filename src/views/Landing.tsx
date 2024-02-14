@@ -25,7 +25,7 @@ const Landing = () => {
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-[8px] md:text-[24px] md:mb-[0px] lg:text-[28px]"
                     style={{ animationDelay: '0.2s' }}
                 >
-                    10 year veteran of web development.
+                    10 year veteran of web development. front end, back end, web apps, APIs, and beyond.
                 </h2>
 
                 <h2
@@ -110,7 +110,7 @@ const Landing = () => {
                     </a>
 
                     <a
-                        href="https://www.linkedin.com/in/gabriel-gonzalvez-927b51ab/"
+                        href="https://www.linkedin.com/in/gabriel-g-927b51ab/"
                         target="_blank"
                     >
                         <FontAwesomeIcon
