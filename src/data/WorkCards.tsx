@@ -20,6 +20,7 @@ export default [
         duration: '06/2023 - Present',
         details: [
             'Led engineering support calls with industry accounts regarding best practices for Gatsby & Netlify applications',
+            'Developed Gatsby source plugin for Drupal node generation & GraphQL schema customization',
             'Developed web applications using React, Gatsby, and Netlify',
         ],
     } as WorkCardInfo,

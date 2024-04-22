@@ -26,6 +26,7 @@ const Landing = () => {
                     style={{ animationDelay: '0.2s' }}
                 >
                     10 year veteran of web development.
+                    
                 </h2>
 
                 <h2
