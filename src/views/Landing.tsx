@@ -36,36 +36,33 @@ const Landing = () => {
                     front end, back end, web apps, APIs, and beyond.
                 </h2>
 
-
                 <h2
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-4 md:text-[24px] lg:text-[28px]"
                     style={{ animationDelay: '0.4s' }}
                 >
-                    currently a senior customer success engineer with{' '}
+                    formerly a senior customer success engineer with{' '}
                     <a
                         className="text-[#00e6e6] text-[#00e6e6] transition-all hover:text-[#93e5e5]"
                         href="https://www.netlify.com/"
                         target="_blank"
                     >
-                        netlify
+                        netlify.
                     </a>
-                    .
-                    <div className="text-[12px]">
-                        speaking of, this site is built with{' '}
-                        <a
-                            href="https://www.gatsbyjs.com/"
-                            target="_blank"
-                            className="text-[#00e6e6] transition-all hover:text-[#93e5e5]"
-                        >
-                            gatsby
-                        </a>
-                        , and deployed on netlify. check 'em out!
-                    </div>
                 </h2>
+
+                <h3 className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-4 md:text-[24px] lg:text-[28px]"
+                    style={{ animationDelay: '0.6s' }}>
+                    recently laid off. currently on the job hunt. 
+                    <a
+                        className="cursor-pointer text-[#00e6e6] text-[#00e6e6] transition-all hover:text-[#93e5e5]"
+                        onClick={() => navigate('/contact')}
+                    > reach out!
+                    </a>
+                </h3>
 
                 <div
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight text-[#00e6e6] cursor-pointer transition-all w-fit hover:text-[#93e5e5] md:text-[24px] lg:text-[28px]"
-                    style={{ animationDelay: '0.6s' }}
+                    style={{ animationDelay: '0.8s' }}
                     onClick={() => navigate('/about')}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
@@ -74,7 +71,7 @@ const Landing = () => {
 
                 <div
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight text-[#00e6e6] cursor-pointer transition-all w-fit hover:text-[#93e5e5] md:text-[24px] lg:text-[28px]"
-                    style={{ animationDelay: '0.8s' }}
+                    style={{ animationDelay: '1s' }}
                     onClick={() => navigate('/work')}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
@@ -83,7 +80,7 @@ const Landing = () => {
 
                 <div
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight text-[#00e6e6] cursor-pointer transition-all w-fit hover:text-[#93e5e5] md:text-[24px] lg:text-[28px]"
-                    style={{ animationDelay: '1.0s' }}
+                    style={{ animationDelay: '1.2s' }}
                     onClick={() => navigate('/samples')}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
@@ -92,7 +89,7 @@ const Landing = () => {
 
                 <div
                     className="animate__animated animate__fadeInDown text-[18px] font-extralight text-[#00e6e6] cursor-pointer transition-all w-fit hover:text-[#93e5e5] md:text-[24px] lg:text-[28px]"
-                    style={{ animationDelay: '1.2s' }}
+                    style={{ animationDelay: '1.4s' }}
                     onClick={() => navigate('/contact')}
                 >
                     <FontAwesomeIcon icon={faAnglesRight} />
@@ -101,7 +98,7 @@ const Landing = () => {
 
                 <div
                     className="animate__animated animate__fadeInDown flex gap-x-4 text-[18px] cursor-pointer transition-all w-fit mt-4 md:text-[24px] lg:text-[28px]"
-                    style={{ animationDelay: '1.4s' }}
+                    style={{ animationDelay: '1.6s' }}
                 >
                     <a href="https://github.com/EnochSpevivo" target="_blank">
                         <FontAwesomeIcon
