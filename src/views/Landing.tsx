@@ -52,7 +52,7 @@ const Landing = () => {
 
                 <h3 className="animate__animated animate__fadeInDown text-[18px] font-extralight mb-4 md:text-[24px] lg:text-[28px]"
                     style={{ animationDelay: '0.6s' }}>
-                    recently laid off. currently on the job hunt. 
+                    currently on the job hunt. immediately available! 
                     <a
                         className="cursor-pointer text-[#00e6e6] text-[#00e6e6] transition-all hover:text-[#93e5e5]"
                         onClick={() => navigate('/contact')}
