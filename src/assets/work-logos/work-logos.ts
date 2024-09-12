@@ -8,6 +8,7 @@ import rechargeLogo from './recharge.png'; // @ts-ignore
 import gloLogo from './glo.jpg'; // @ts-ignore
 import flsLogo from './fls.png'; 
 import netlifyLogo from './netlify.png';
+import algoliaLogo from './algolia.png';
 
 export {
   nbcLogo,
@@ -18,6 +19,7 @@ export {
   gloLogo,
   flsLogo,
   netlifyLogo,
+  algoliaLogo,
 };
 
-export default [linkedinLogo, verysLogo, nbcLogo, flsLogo, rechargeLogo, gloLogo, makersquareLogo, netlifyLogo];
+export default [linkedinLogo, verysLogo, nbcLogo, flsLogo, rechargeLogo, gloLogo, makersquareLogo, netlifyLogo, algoliaLogo];

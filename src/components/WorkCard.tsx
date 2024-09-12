@@ -17,6 +17,10 @@ interface WorkCard {
 const WorkCard = ({ logo, company, title, stack, duration, details }: WorkCard) => {
     const [isWorkCardModalOpen, setIsWorkCardModalOpen] = useState(false);
     const renderStack = (stack: string[]) => {
+        if (stack.length === 1) {
+            return <span>{stack[0]}</span>;
+        }
+        
         return <span>{`${stack.slice(0, -1).join(', ')}, ${stack.slice(-1)}`}</span>;
     };
     const renderWorkDetails = (details: string[]) => {

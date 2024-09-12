@@ -34,14 +34,6 @@ const WorkSamples = () => {
                             glo
                         </h2>
 
-                        {/* <a href="https://www.glo.com/strava" target="_blank">
-                            <img
-                                className="rounded-lg transition-all relative cursor-pointer bottom-[0px] hover:bottom-[3px]"
-                                src={stravaSample}
-                                alt="strava sample"
-                            />
-                        </a> */}
-
                         <a href="https://www.glo.com/teachers/jason-crandell" target="_blank">
                             <img
                                 className="rounded-lg transition-all relative cursor-pointer bottom-[0px] hover:bottom-[3px]"
@@ -157,7 +149,7 @@ const WorkSamples = () => {
                     co-creator,{' '}
                     <a
                         href="https://unburntwitch.com/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         zoë quinn
@@ -165,7 +157,7 @@ const WorkSamples = () => {
                     . it's our spin on the{' '}
                     <a
                         href="https://www.nytimes.com/games/wordle/index.html"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         Wordle
@@ -179,7 +171,7 @@ const WorkSamples = () => {
                     <li>
                         <a
                             href={`${wordForWordVideoSample1}`}
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >
                             view this quick video
@@ -188,7 +180,7 @@ const WorkSamples = () => {
                     <li>
                         <a
                             href="https://wordleswithfriendles-staging.web.app/"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >
                             sign up for an account
@@ -206,14 +198,14 @@ const WorkSamples = () => {
                     i worked on the{' '}
                     <a
                         href="https://www.aciweb.com/aci-surestep-sketch/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         ACI SureStep™ Sketch
                     </a>{' '}
                     application as part of my contract with{' '}
                     <a
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         href="https://www.verys.com/"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
@@ -229,7 +221,7 @@ const WorkSamples = () => {
                     <li>
                         <a
                             href="https://www.aciweb.com/aci-surestep-sketch/"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >
                             sign up
@@ -240,7 +232,7 @@ const WorkSamples = () => {
                     <li>
                         <a
                             href={`${verysVideoSample1}`}
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >
                             view this screen capture of
@@ -251,7 +243,7 @@ const WorkSamples = () => {
                     <li>
                         <a
                             href={`${verysVideoSample2}`}
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >
                             view this other screen capture of

@@ -55,7 +55,7 @@ const About = () => {
                     library/framework (depending on your definition) is{' '}
                     <a
                         href="https://reactjs.org/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         react
@@ -63,7 +63,7 @@ const About = () => {
                     , but i've also built apps with{' '}
                     <a
                         href="https://emberjs.com/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         ember
@@ -71,7 +71,7 @@ const About = () => {
                     ,{' '}
                     <a
                         href="https://vuejs.org/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         vue
@@ -79,7 +79,7 @@ const About = () => {
                     , and{' '}
                     <a
                         href="https://backbonejs.org/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         backbone
@@ -88,7 +88,7 @@ const About = () => {
                     hell, i even go{' '}
                     <a
                         href="http://vanilla-js.com/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         vanilla
@@ -118,7 +118,7 @@ const About = () => {
                     productive. my good friend{' '}
                     <a
                         href="https://unburntwitch.com/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         zoë quinn
@@ -126,7 +126,7 @@ const About = () => {
                     and i created a{' '}
                     <a
                         href="https://wordleswithfriendles-staging.web.app/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         multiplayer version of Wordle
@@ -135,7 +135,7 @@ const About = () => {
                     advantage of my established home office to expand my programming horizons into{' '}
                     <a
                         href="https://github.com/EnochSpevivo/arduino-sketchbook"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         microcontroller projects
@@ -152,7 +152,7 @@ const About = () => {
                     or just want to chat more about something you've seen here, please feel free to
                     <a
                         href="/contact"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                     >
                         {' '}

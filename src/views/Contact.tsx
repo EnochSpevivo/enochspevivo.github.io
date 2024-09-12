@@ -186,26 +186,12 @@ const Contact = () => {
                         you can also shoot me a message on{' '}
                         <a
                             href="https://www.linkedin.com/in/gabriel-g-927b51ab/"
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
                         >
                             linkedin
                         </a>
                         . i check it frequently, it's just as good as an email.
-                    </span>
-
-                    <span
-                        className="animate__animated animate__fadeInUp text-[12px] mb-6 md:text-[16px]"
-                        style={{ animationDelay: '1.4s' }}
-                    >
-                        if you're feeling truly wild, you can call me on my personal line at{' '}
-                        <a
-                            href="tel:4086343179"
-                            className="transition-all text-[#00e6e6] hover:text-[#93e5e5]"
-                        >
-                            408 634 3179
-                        </a>
-                        . it's certainly the most direct way to get a hold of me!
                     </span>
                 </div>
             </div>

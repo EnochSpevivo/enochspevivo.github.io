@@ -7,17 +7,28 @@ import {
     gloLogo,
     flsLogo,
     netlifyLogo,
+    algoliaLogo,
 } from '../assets/work-logos/work-logos';
 
 import WorkCardInfo from '../interfaces/WorkCardInfo';
 
 export default [
     {
+        company: 'Algolia',
+        title: 'Customer Success Engineer (Remote)',
+        stack: ['Algolia (naturally)',],
+        logo: algoliaLogo,
+        duration: '09/2024 - Present',
+        details: [
+            'Just hired!'
+        ],
+    } as WorkCardInfo,
+    {
         company: 'Netlify',
         title: 'Senior Customer Success Engineer (Remote)',
         stack: ['React', 'Gatsby', 'Netlify'],
         logo: netlifyLogo,
-        duration: '06/2023 - Present',
+        duration: '06/2023 - 06/2024',
         details: [
             'Led engineering support calls with industry accounts regarding best practices for Gatsby & Netlify applications',
             'Developed Gatsby source plugin for Drupal node generation & GraphQL schema customization',

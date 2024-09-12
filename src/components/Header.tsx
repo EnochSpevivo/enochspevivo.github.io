@@ -29,7 +29,7 @@ const Header = ({ viewTitle, subtitle }: Header) => {
                 </div>
 
                 <div className="flex gap-x-4 relative top-[4px] sm:justify-end">
-                    <a href="https://github.com/EnochSpevivo" target="_blank">
+                    <a href="https://github.com/EnochSpevivo" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon
                             icon={faGithub}
                             className="text-[24px] transition-all cursor-pointer hover:text-[#00e6e6] md:text-[28px]"
@@ -38,7 +38,7 @@ const Header = ({ viewTitle, subtitle }: Header) => {
 
                     <a
                         href="https://www.linkedin.com/in/gabriel-g-927b51ab/"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                     >
                         <FontAwesomeIcon
                             icon={faLinkedinIn}
@@ -48,7 +48,7 @@ const Header = ({ viewTitle, subtitle }: Header) => {
 
                     <a
                         href="https://docs.google.com/document/d/1QgF8Tde5vug-2m2TDLm1pg46tf67wz8GKH5LfvF9HaY/edit?usp=sharing"
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                     >
                         <FontAwesomeIcon
                             icon={faFileLines}
